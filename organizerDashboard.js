@@ -14,6 +14,12 @@ function createTabs() {
   tabNames.forEach(tabName => {
     const tab = createTab(tabName);
     tabs.appendChild(tab);
+    if (tabName === 'Create Events') {
+      tab.addEventListener('click', function() {
+        // Redirect to the Create Event page
+        window.location.href = 'createEvent.html';
+      });
+    }
   });
 
   return tabs;
