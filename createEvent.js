@@ -105,6 +105,10 @@ function createEventBox() {
   publish.textContent = 'Publish';
   publish.classList.add('publish'); // Add class for styling
 
+  publish.addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
   // Append the event elements to the event management box
   event.appendChild(eventName);
   event.appendChild(date);
