@@ -1,5 +1,6 @@
 body {
     font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    background-color: #E9F6FE;
   }
   
 h1, h2, h3, h4, h5, h6 {
@@ -110,6 +111,7 @@ p {
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     border: 2px solid black; /* Add border */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow */
+    background-color: white;
     }
 
   
