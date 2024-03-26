@@ -106,4 +106,4 @@ function createOrganizerDashboard() {
   return organizerDashboard;
 }
 
-export default createOrganizerDashboard;
+module.exports = createOrganizerDashboard;
