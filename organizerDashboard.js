@@ -41,21 +41,6 @@ function createNotifications() {
 }
 
 
-function createEventImagesBox() {
-  const eventImagesBox = document.createElement('div');
-  eventImagesBox.classList.add('event-images-box');
-
-  const eventImageSrcs = ['event-image1.png', 'event-image2.png', 'event-image3.png'];
-  eventImageSrcs.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'Event Image';
-    eventImagesBox.appendChild(img);
-  });
-
-  return eventImagesBox;
-}
-
 function createEventManagementBox() {
   // Create the event management box container
   const eventManagementBoxContainer = document.createElement('div');
@@ -82,6 +67,34 @@ function createEventManagementBox() {
   const attendingButton1 = document.createElement('button');
   attendingButton1.textContent = 'Attending';
   attendingButton1.classList.add('attending-button'); // Add class for styling
+
+  // Create the icon image after the attending button
+  const attendingProfile = document.createElement('img');
+  attendingProfile.src = 'images/agent1.png';
+  attendingProfile.alt = 'Profile 1';
+  attendingProfile.classList.add('attending-profile'); // Add class for styling
+
+  // Create the icon image after the attending button
+  const attendingProfile2 = document.createElement('img');
+  attendingProfile2.src = 'images/agent2.png';
+  attendingProfile2.alt = 'Profile 2';
+  attendingProfile2.classList.add('attending-profile'); // Add class for styling
+  
+  // Create the icon image after the attending button
+  const attendingProfile3 = document.createElement('img');
+  attendingProfile3.src = 'images/agent3.png';
+  attendingProfile3.alt = 'Profile 3';
+  attendingProfile3.classList.add('attending-profile'); // Add class for styling
+
+  // Create the amount of others attedending the event
+  const attendingAmount = document.createElement('div');
+  attendingAmount.textContent = '+21';
+  attendingAmount.classList.add('attending-amount'); // Add a class for styling
+
+  attendingButton1.appendChild(attendingProfile);
+  attendingButton1.appendChild(attendingProfile2);
+  attendingButton1.appendChild(attendingProfile3);
+  attendingButton1.appendChild(attendingAmount);
 
   // Create the "Send Update" button for ACM Meeting: Meet & Greet 12PM 4/26
   const sendUpdateButton1 = document.createElement('button');
@@ -117,6 +130,15 @@ function createEventManagementBox() {
   // Clone the icon element for the second "edit event" button
   const editEventButtonIconClone = editEventIcon.cloneNode(true);
 
+  // Clone the icon element for the second "attending" button
+  const profilePicClone = attendingProfile.cloneNode(true);
+  const profilePicClone1 = attendingProfile2.cloneNode(true);
+  const profilePicClone2 = attendingProfile3.cloneNode(true);
+
+  const attendingAmount1 = document.createElement('div');
+  attendingAmount1.textContent = '+11';
+  attendingAmount1.classList.add('attending-amount'); // Add a class for styling
+
   // Create the "Send Update" button for ACM Meetings: SIG Game Lead 3PM 4/29
   const sendUpdateButton2 = document.createElement('button');
   sendUpdateButton2.textContent = 'Send Update';
@@ -137,6 +159,11 @@ function createEventManagementBox() {
   const attendingButton2 = document.createElement('button');
   attendingButton2.textContent = 'Attending';
   attendingButton2.classList.add('attending-button'); // Add class for styling
+  attendingButton2.append(profilePicClone); // Append the cloned icon to the second button
+  attendingButton2.append(profilePicClone1); // Append the cloned icon to the second button
+  attendingButton2.append(profilePicClone2); // Append the cloned icon to the second button
+  attendingButton2.append(attendingAmount1);
+
 
   // Append the event elements to the event management box
   event1.appendChild(eventName1);
@@ -165,20 +192,99 @@ function createEventManagementBox() {
 }
 
 
-
 function createFeedbackAnalyticsBox() {
+  // Create the feedback analytics box container
+  const feedbackAnalyticsBoxContainer = document.createElement('div');
+  feedbackAnalyticsBoxContainer.classList.add('feedback-box-container');
+
   const feedbackAnalyticsBox = document.createElement('div');
   feedbackAnalyticsBox.classList.add('feedback-analytics-box');
 
   const heading = document.createElement('h2');
   heading.textContent = 'Feedback and Analytics';
 
-  // Include feedback and analytics content here
+  const chartContainer = document.createElement('div');
+  chartContainer.classList.add('chart-container');
 
+  const pieChart = createPieChart();
+  const barChart = createBarChart();
+
+  chartContainer.appendChild(barChart); // Append the bar chart
+  chartContainer.appendChild(pieChart); // Append the pie chart
+
+  // Append the heading and chart container to the feedback analytics box
   feedbackAnalyticsBox.appendChild(heading);
+  feedbackAnalyticsBox.appendChild(chartContainer);
+  feedbackAnalyticsBoxContainer.appendChild(feedbackAnalyticsBox);
 
-  return feedbackAnalyticsBox;
+  return feedbackAnalyticsBoxContainer;
 }
+
+
+
+function createPieChart() {
+  const container = document.createElement('div');
+  container.id = 'container'; // Set the id for the container
+  container.style.width = '400px'; // Set the width
+  container.style.height = '200px'; // Set the height
+
+  anychart.onDocumentReady(function() {
+    var data = [
+      { x: 'Vegan', value: 18 },
+      { x: 'Kosher', value: 5 },
+      { x: 'Vegetarian', value: 20 },
+      { x: 'Halal', value: 57 }
+    ];
+
+    var chart = anychart.pie();
+    chart.title('Club Dietary Restrictions');
+    chart.data(data);
+    chart.container(container);
+    chart.draw();
+  });
+
+  return container;
+}
+
+function createBarChart() {
+  const container = document.createElement('div');
+  container.id = 'bar-container'; // Set the id for the container
+  container.style.width = '400px'; // Set the width
+  container.style.height = '200px'; // Set the height
+
+  anychart.onDocumentReady(function() {
+    // Create data with additional color information
+    var data = [
+      {x: "Hispanics", value: 60, color: "#F12222"}, // Red color
+      {x: "Asians", value: 20, color: "#F2EF26"},     // Yellow color
+      {x: "African Americans", value: 15, color: "#26F2EF"}, // Cyan color
+      {x: "Other", value: 5, color: "#54F226"}         // Green color
+    ];
+
+    // Create a chart
+    var chart = anychart.bar();
+
+    chart.title('Membership Growth');
+
+    // Create a bar series and set the data
+    var series = chart.bar(data);
+
+    // Set colors for each bar
+    series.fill(function() {
+      return this.getData('color');
+    });
+
+    // Set the container id
+    chart.container(container);
+
+    // Initiate drawing the chart
+    chart.draw();
+  });
+
+  return container;
+}
+
+
 
 function createOrganizerDashboard() {
   const organizerDashboard = document.createElement('div');
@@ -208,10 +314,40 @@ function createOrganizerDashboard() {
   mainContent.appendChild(eventManagementBox);
   mainContent.appendChild(feedbackAnalyticsBox);
 
+  const footer = createFooter(); // Create a footer section
   organizerDashboard.appendChild(header);
   organizerDashboard.appendChild(mainContent);
+  organizerDashboard.appendChild(footer); // Append the footer to the dashboard
 
   return organizerDashboard;
+}
+
+function createFooter() {
+  const footer = document.createElement('footer');
+  footer.classList.add('footer');
+
+  // Create image elements for the three images
+  const image1 = document.createElement('img');
+  image1.src = 'images/uic1.jpg'; // Replace 'image1.png' with the path to your image file
+  image1.alt = 'Image 1';
+  image1.classList.add('uic1-image'); // Add class for styling
+
+  const image2 = document.createElement('img');
+  image2.src = 'images/uic2.jpeg'; // Replace 'image2.png' with the path to your image file
+  image2.alt = 'Image 2';
+  image2.classList.add('uic2-image'); // Add class for styling
+
+  const image3 = document.createElement('img');
+  image3.src = 'images/uic3.jpg'; // Replace 'image3.png' with the path to your image file
+  image3.alt = 'Image 3';
+  image3.classList.add('uic3-image'); // Add class for styling
+
+  // Append the images to the footer
+  footer.appendChild(image1);
+  footer.appendChild(image2);
+  footer.appendChild(image3);
+
+  return footer;
 }
 
 module.exports = createOrganizerDashboard;

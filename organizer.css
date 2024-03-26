@@ -1,7 +1,20 @@
+body {
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+  }
+  
+h1, h2, h3, h4, h5, h6 {
+    font-family: "DM Sans", sans-serif; /* Change font for headings */
+  }
+  
+p {
+    font-family: "DM Sans", sans-serif; /* Change font for paragraphs */
+  }
+
 .organizer-dashboard {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    position: relative; /* Ensure the container is positioned relatively */
   }
   
   .header {
@@ -26,7 +39,6 @@
     background: none;
     border: none;
     cursor: pointer;
-    text-decoration: underline;
     font-size: 18px; /* Increase font size */
   }
   
@@ -39,19 +51,21 @@
   .notify {
     width: 30px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Position the logo absolutely */
     padding-right: 20px;
-    position: fixed;
-    top: 50px; /* Adjust the distance from the top as needed */
-    right: 150px; /* Adjust the distance from the right as needed */
+    top: 50px; /* Adjust the top position as needed */
+    right: 125px; /* Adjust the right position as needed */
   }
 
-  .clubLogo{
+  
+  .clubLogo {
     width: 95px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
-    position: fixed;
-    top: 40px; /* Adjust the distance from the top as needed */
-    right: 50px; /* Adjust the distance from the right as needed */
+    position: absolute; /* Position the logo absolutely */
+    top: 40px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
   }
+  
   
   .main-content {
     flex-grow: 1;
@@ -79,13 +93,28 @@
     margin-right: 10px;
   }
 
-  .event-management-box-container {
-    border: 2px solid black;
-    padding: 10px;
+  .feedback-box-container {
+    height: 415px;
   }
+ 
+
+  .event-management-box-container,
+  .feedback-box-container {
+    display: inline-block;
+    padding: 6px;
+    padding-right: 80px; /* Increase the padding at the right */
+    padding-left: 70px; /* Increase the padding at the left */
+    margin-top: 50px;
+    margin-left: 70px; /* Increase the padding at the left */
+    width: calc(50% - 140px); /* Adjust the width to occupy half of the available space */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border: 2px solid black; /* Add border */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow */
+    }
+
   
   .event-management-box {
-   
+
   }
   
   .event-heading {
@@ -104,7 +133,7 @@
 
     /* Adds padding between the event name and the attending button */
   .event-name{ 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   
   
@@ -131,11 +160,68 @@
   }
 
   .attending-button {
-    margin-top: 10px;
-    padding: 8px 12px; /* Adjust padding as needed */
-    font-size: 12px; /* Adjust font size as needed */
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin-top: 20px;
   }
 
+  .attending-profile{
+    width: 30px;
+    height: auto;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .attending-amount{
+    display: inline-block;
+    width: 30px; /* Adjust the width and height as needed */
+    height: 30px;
+    line-height: 30px; /* Center the text vertically */
+    text-align: center; /* Center the text horizontally */
+    background-color: #ccc; /* Gray background color */
+    color: #000; /* White text color */
+    border-radius: 50%; /* Creates a circular shape */
+  }
+
+  .chart-container {
+    display: flex; /* Use flexbox to display elements horizontally */
+  }
+  
+  #bar-container, #container {
+    width: 400px;
+    height: 200px;
+  }
+  
+
+  .footer {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    margin-top: 100px;
+  }
+  
+  .uic1-image {
+    margin-left: 20px; /* Adjust as needed */
+    width: 400px;
+    height: 300px;
+    padding-right: 20px;
+  }
+  
+  .uic2-image {
+    width: 500px;
+    height: auto;
+  }
+  
+  .uic3-image {
+    width: 400px;
+    height: auto;
+    padding-left: 20px;
+  }
+  
+  
+  
+  
+  
   
   
   
