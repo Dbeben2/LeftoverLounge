@@ -17,7 +17,7 @@ function createTabs() {
     if (tabName === 'Create Events') {
       tab.addEventListener('click', function() {
         // Redirect to the Create Event page
-        window.location.href = 'createEvent.html';
+        window.location.href = 'CE.html';
       });
     }
   });
