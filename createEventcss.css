@@ -1,0 +1,68 @@
+.create-Event {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+  
+  .tabs {
+    display: flex;
+  }
+  
+  .tab {
+    padding: 10px;
+    margin-right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 18px; /* Increase font size */
+  }
+  
+  
+  .notifications {
+    display: flex;
+    align-items: center;
+  }
+  
+  .notify {
+    width: 30px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    padding-right: 20px;
+    position: fixed;
+    top: 50px; /* Adjust the distance from the top as needed */
+    right: 150px; /* Adjust the distance from the right as needed */
+  }
+
+  .clubLogo{
+    width: 95px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: fixed;
+    top: 40px; /* Adjust the distance from the top as needed */
+    right: 50px; /* Adjust the distance from the right as needed */
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-container {
+    display: flex;
+  }
+
+  
+  
