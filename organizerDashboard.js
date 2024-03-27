@@ -31,7 +31,7 @@ function createNotifications() {
   notifications.classList.add('notifications');
 
   const notify = document.createElement('img');
-  notify.src = '/Images/notify.png';
+  notify.src = '../Images/notify.png';
   notify.alt = 'Notifications';
   notify.classList.add('notify'); // Add a class to the image for styling
 
