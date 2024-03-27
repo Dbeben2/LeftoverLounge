@@ -344,7 +344,7 @@ function createFooter() {
   image2.classList.add('uic2-image'); // Add class for styling
 
   const image3 = document.createElement('img');
-  image3.src = '/LeftoverLounge/uic3.jpg'; // Replace 'image3.png' with the path to your image file
+  image3.src = '/LeftoverLounge/Images/uic3.jpg'; // Replace 'image3.png' with the path to your image file
   image3.alt = 'Image 3';
   image3.classList.add('uic3-image'); // Add class for styling
 
