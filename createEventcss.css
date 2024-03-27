@@ -49,7 +49,7 @@ h2{
   width: 30px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
   padding-right: 20px;
-  position: fixed;
+  position: absolute;
   top: 50px; /* Adjust the distance from the top as needed */
   right: 150px; /* Adjust the distance from the right as needed */
 }
@@ -57,7 +57,7 @@ h2{
 .clubLogo{
   width: 95px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
-  position: fixed;
+  position: absolute;
   top: 40px; /* Adjust the distance from the top as needed */
   right: 50px; /* Adjust the distance from the right as needed */
 }
