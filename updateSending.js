@@ -31,12 +31,12 @@ function createNotifications() {
     notifications.classList.add('notifications');
   
     const notify = document.createElement('img');
-    notify.src = 'images/notify.png';
+    notify.src = 'Images/notify.png';
     notify.alt = 'Notifications';
     notify.classList.add('notify'); // Add a class to the image for styling
   
     const clubName = document.createElement('img');
-    clubName.src = 'images/acmLogo.png';
+    clubName.src = 'Images/acmLogo.png';
     clubName.alt = 'Club Logo'
     clubName.classList.add('clubLogo'); // Add a class to the image for styling
   
@@ -125,7 +125,7 @@ function createUpdateSending() {
   
     const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = 'images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
+    logo.src = 'Images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
     logo.alt = 'Logo'; // Add an alt attribute for accessibility
   
     const tabs = createTabs();
