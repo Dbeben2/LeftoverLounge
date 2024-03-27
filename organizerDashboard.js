@@ -334,7 +334,7 @@ function createFooter() {
 
   // Create image elements for the three images
   const image1 = document.createElement('img');
-  image1.src = "../Images/uic1.JPG"; // Replace 'image1.png' with the path to your image file
+  image1.src = "../Images/uic1.jpg"; // Replace 'image1.png' with the path to your image file
   image1.alt = 'Image 1';
   image1.classList.add('uic1-image'); // Add class for styling
 
