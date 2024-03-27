@@ -93,14 +93,14 @@ function updateSendingBox() {
     box2.classList.add('box2');
 
     const check2 = document.createElement('button');
-    check1.classList.add('check2');
+    check2.classList.add('check2');
 
     const updatetext2 = document.createElement('p');
-    updatetext2.textContent = 'Update students fresh food is left, they can come andd pick up.';
+    updatetext2.textContent = 'Update students fresh food is left, they can come and pick up.';
     updatetext2.classList.add('update-text2'); // Add class for styling
 
-    box1.appendChild(check2);
-    box1.appendChild(updatetext2);
+    box2.appendChild(check2);
+    box2.appendChild(updatetext2);
 
     event.appendChild(box1);
     event.appendChild(box2);

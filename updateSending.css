@@ -1,36 +1,32 @@
 body {
     font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
     background-color: #E9F6FE;
-  }
+}
   
-  h2{
-    font-family: "DM Sans", sans-serif; /* Change font for headings */
-  }
-  
-  .create-Event {
+.create-Event {
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: #E9F6FE;
-  }
+}
   
-  .header {
+.header {
     display: flex;
     align-items: center;
     padding: 20px;
     background-color: #f0f0f0;
-  }
+}
   
-  .logo {
+.logo {
     width: 100px;
     height: auto;
-  }
+}
   
-  .tabs {
+.tabs {
     display: flex;
-  }
+}
   
-  .tab {
+.tab {
     padding: 10px;
     margin-right: 20px;
     background: none;
@@ -38,51 +34,95 @@ body {
     cursor: pointer;
     text-decoration: underline;
     font-size: 18px; /* Increase font size */
-  }
+}
   
-  .notifications {
+.notifications {
     display: flex;
     align-items: center;
-  }
+}
   
-  .notify {
+.notify {
     width: 30px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     padding-right: 20px;
     position: fixed;
     top: 50px; /* Adjust the distance from the top as needed */
     right: 150px; /* Adjust the distance from the right as needed */
-  }
+}
   
-  .clubLogo{
+.clubLogo{
     width: 95px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     position: fixed;
     top: 40px; /* Adjust the distance from the top as needed */
     right: 50px; /* Adjust the distance from the right as needed */
-  }
+}
   
-  .main-content {
+.main-content {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
+}
   
-  .content-container {
+.content-container {
     display: flex;
-  }
+}
   
-  .event {
+.event {
+    width: 1000px;
+    height: 300px;
     margin-top: 10px;
-  }
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
 
-  .send-update{
+.text1{
+    display: flex;
+    font-size: 38px;
+    align-items: center; /* Vertically center the content */
+    flex-direction: column; /* Align items vertically */
+}
+
+.text2{
+    display: flex;
+    font-size: 27px;
+    align-items: center; /* Vertically center the content */
+    flex-direction: column; /* Align items vertically */
+}
+
+.box1{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    align-items: center; 
+}
+
+.box2{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.check1{
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+}
+
+.check2{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Ensure check2 button is circular */
+}
+
+.send-update{
     width: 300px;
-    height: 40px;
+    height: 60px;
     display: block;
     margin: 0 auto;
+    margin-top: 40px;
     margin-bottom: 20px;
     background-color: #82E36A;
-    font-size: 20px;
-  }
+    font-size: 30px;
+}
