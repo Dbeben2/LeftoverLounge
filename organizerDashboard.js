@@ -31,12 +31,12 @@ function createNotifications() {
   notifications.classList.add('notifications');
 
   const notify = document.createElement('img');
-  notify.src = 'Images/notify.png';
+  notify.src = '../Images/notify.png';
   notify.alt = 'Notifications';
   notify.classList.add('notify'); // Add a class to the image for styling
 
   const clubName = document.createElement('img');
-  clubName.src = 'Images/acmLogo.png';
+  clubName.src = '../Images/acmLogo.png';
   clubName.alt = 'Club Logo'
   clubName.classList.add('clubLogo'); // Add a class to the image for styling
 
