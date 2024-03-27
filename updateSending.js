@@ -4,9 +4,9 @@ function createTab(tabName) {
     tab.classList.add('tab');
     tab.textContent = tabName;
     return tab;
-  }
+}
   
-  function createTabs() {
+function createTabs() {
     const tabs = document.createElement('div');
     tabs.classList.add('tabs');
   
@@ -23,10 +23,10 @@ function createTab(tabName) {
     });
   
     return tabs;
-  }
+}
   
   
-  function createNotifications() {
+function createNotifications() {
     const notifications = document.createElement('div');
     notifications.classList.add('notifications');
   
@@ -44,10 +44,10 @@ function createTab(tabName) {
     notifications.appendChild(clubName);
   
     return notifications;
-  }
+}
   
   
-  function updateSendingBox() {
+function updateSendingBox() {
     // Create the event management box container
     const eventBoxContainer = document.createElement('div');
     eventBoxContainer.classList.add('event-box-container');
@@ -55,9 +55,6 @@ function createTab(tabName) {
     // Create the event management box
     const eventBox = document.createElement('div');
     eventBox.classList.add('event-box');
-  
-    const event = document.createElement('div');
-    event.classList.add('event'); // Add class for styling
 
     const text1 = document.createElement('p');
     text1.textContent = 'Event Name';
@@ -67,28 +64,59 @@ function createTab(tabName) {
     text2.textContent = 'Update Reason';
     text2.classList.add('text2'); // Add class for styling
   
-    // var eventName = document.createElement('input');
-    // eventName.type = "text";
-    // eventName.placeholder = "Enter event name";
-    // eventName.classList.add('event-name'); // Add class for styling
+    const sendUpdate = document.createElement('button');
+    sendUpdate.textContent = 'Send Update';
+    sendUpdate.classList.add('send-update'); // Add class for styling
+        
+    const event = document.createElement('div');
+    event.classList.add('event'); // Add class for styling
+
+    const box1 = document.createElement('div');
+    box1.classList.add('box1');
+
+    const check1 = document.createElement('button');
+    check1.classList.add('check1');
+
+    const updatetext1 = document.createElement('p');
+    updatetext1.textContent = 'Update students event is starting in ';
+    updatetext1.classList.add('update-text1'); // Add class for styling
+
+    var time = document.createElement('input');
+    time.type = "text";
+    time.classList.add('time'); // Add class for styling
   
-    
-  
-    // Append the event elements to the event management box
-    event.appendChild(text1);
-    event.appendChild(text2);
-  
-    // Append the heading and events to the event management box
+    box1.appendChild(check1);
+    box1.appendChild(updatetext1);
+    box1.appendChild(time);
+
+    const box2 = document.createElement('div');
+    box2.classList.add('box2');
+
+    const check2 = document.createElement('button');
+    check1.classList.add('check2');
+
+    const updatetext2 = document.createElement('p');
+    updatetext2.textContent = 'Update students fresh food is left, they can come andd pick up.';
+    updatetext2.classList.add('update-text2'); // Add class for styling
+
+    box1.appendChild(check2);
+    box1.appendChild(updatetext2);
+
+    event.appendChild(box1);
+    event.appendChild(box2);
+
+    eventBox.appendChild(text1);
+    eventBox.appendChild(text2);
     eventBox.appendChild(event);
-  
-    // Append the event management box to the container
+    eventBox.appendChild(sendUpdate);
+
     eventBoxContainer.appendChild(eventBox);
   
     // Return the container
     return eventBoxContainer;
-  }
+}
   
-  function createUpdateSending() {
+function createUpdateSending() {
     const updateSending = document.createElement('div');
     updateSending.classList.add('create-Event');
   
@@ -118,7 +146,7 @@ function createTab(tabName) {
     updateSending.appendChild(mainContent);
   
     return updateSending;
-  }
+}
   
-  module.exports = createUpdateSending;
+module.exports = createUpdateSending;
   
