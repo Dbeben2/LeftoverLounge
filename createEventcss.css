@@ -73,6 +73,10 @@ h2{
   display: flex;
 }
 
+.event-box-container {
+  display: flex;
+}
+
 .event {
   margin-top: 10px;
 }
