@@ -31,12 +31,12 @@ function createNotifications() {
   notifications.classList.add('notifications');
 
   const notify = document.createElement('img');
-  notify.src = '../Images/notify.png';
+  notify.src = '/LeftoverLounge/Images/notify.png';
   notify.alt = 'Notifications';
   notify.classList.add('notify'); // Add a class to the image for styling
 
   const clubName = document.createElement('img');
-  clubName.src = '../Images/acmLogo.png';
+  clubName.src = '/LeftoverLounge/Images/acmLogo.png';
   clubName.alt = 'Club Logo'
   clubName.classList.add('clubLogo'); // Add a class to the image for styling
 
@@ -76,19 +76,19 @@ function createEventManagementBox() {
 
   // Create the icon image after the attending button
   const attendingProfile = document.createElement('img');
-  attendingProfile.src = '../Images/agent1.png';
+  attendingProfile.src = '/LeftoverLounge/Images/agent1.png';
   attendingProfile.alt = 'Profile 1';
   attendingProfile.classList.add('attending-profile'); // Add class for styling
 
   // Create the icon image after the attending button
   const attendingProfile2 = document.createElement('img');
-  attendingProfile2.src = '../Images/agent2.png';
+  attendingProfile2.src = '/LeftoverLounge/Images/agent2.png';
   attendingProfile2.alt = 'Profile 2';
   attendingProfile2.classList.add('attending-profile'); // Add class for styling
   
   // Create the icon image after the attending button
   const attendingProfile3 = document.createElement('img');
-  attendingProfile3.src = '../Images/agent3.png';
+  attendingProfile3.src = '/LeftoverLounge/Images/agent3.png';
   attendingProfile3.alt = 'Profile 3';
   attendingProfile3.classList.add('attending-profile'); // Add class for styling
 
@@ -114,7 +114,7 @@ function createEventManagementBox() {
 
   // Create the icon for "edit event" buttons
   const editEventIcon = document.createElement('img');
-  editEventIcon.src = '../Images/edit.png'; // Add the path to your image
+  editEventIcon.src = '/LeftoverLounge/Images/edit.png'; // Add the path to your image
   editEventIcon.alt = 'Edit Event Icon'; // Add alt text for accessibility
   editEventIcon.classList.add('edit-icon'); // Add class for styling
 
@@ -123,7 +123,7 @@ function createEventManagementBox() {
 
   // Create the icon for "Send Update" buttons
   const sendUpdateButtonIcon = document.createElement('img');
-  sendUpdateButtonIcon.src = '../Images/send-update-icon.png'; // Add the path to your image
+  sendUpdateButtonIcon.src = '/LeftoverLounge/Images/send-update-icon.png'; // Add the path to your image
   sendUpdateButtonIcon.alt = 'Send Update Icon'; // Add alt text for accessibility
   sendUpdateButtonIcon.classList.add('send-update-icon'); // Add class for styling
 
@@ -334,17 +334,17 @@ function createFooter() {
 
   // Create image elements for the three images
   const image1 = document.createElement('img');
-  image1.src = "../Images/uic1.jpg"; // Replace 'image1.png' with the path to your image file
+  image1.src = "/LeftoverLounge/Images/uic1.jpg"; // Replace 'image1.png' with the path to your image file
   image1.alt = 'Image 1';
   image1.classList.add('uic1-image'); // Add class for styling
 
   const image2 = document.createElement('img');
-  image2.src = '../Images/uic2.jpeg'; // Replace 'image2.png' with the path to your image file
+  image2.src = '/LeftoverLounge/Images/uic2.jpeg'; // Replace 'image2.png' with the path to your image file
   image2.alt = 'Image 2';
   image2.classList.add('uic2-image'); // Add class for styling
 
   const image3 = document.createElement('img');
-  image3.src = '../Images/uic3.jpg'; // Replace 'image3.png' with the path to your image file
+  image3.src = '/LeftoverLounge/uic3.jpg'; // Replace 'image3.png' with the path to your image file
   image3.alt = 'Image 3';
   image3.classList.add('uic3-image'); // Add class for styling
 
