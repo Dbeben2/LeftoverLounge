@@ -125,8 +125,12 @@ function createUpdateSending() {
   
     const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = 'Images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
+    logo.src = 'Images/LeftoverLoungeLogo.png'; 
     logo.alt = 'Logo'; // Add an alt attribute for accessibility
+
+    logo.addEventListener('click', function() {
+      window.location.href = 'index.html'; // Event listener to take you back to the homepage
+    });
   
     const tabs = createTabs();
     const notifications = createNotifications();

@@ -65,7 +65,7 @@ function createEvent(eventName, date) {
   return event;
 }
 
-
+const eventName1 = document.createElement('div');
 
 function createEventManagementBox() {
   // Create the event management box container
@@ -86,7 +86,6 @@ function createEventManagementBox() {
   event1.classList.add('event'); // Add class for styling
 
   // Create the event name for ACM Meeting: Meet & Greet 12PM 4/26
-  const eventName1 = document.createElement('div');
   eventName1.textContent = 'ACM Meeting: Meet & Greet 12PM 4/26';
 
   // Create the "Attending" button for ACM Meeting: Meet & Greet 12PM 4/26
@@ -131,6 +130,12 @@ function createEventManagementBox() {
   const editEventButton1 = document.createElement('button');
   editEventButton1.textContent = 'Edit Event';
   editEventButton1.classList.add('edit-event-button'); // Add class for styling
+
+  // Add an event listener to the "edit event" button
+  editEventButton1.addEventListener('click', function() {
+    // Redirect to the Edit Event page
+    window.location.href = 'editEvent.html'; 
+  });
 
   // Create the icon for "edit event" buttons
   const editEventIcon = document.createElement('img');
@@ -323,6 +328,11 @@ function createOrganizerDashboard() {
   logo.classList.add('logo');
   logo.src = 'Images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
   logo.alt = 'Logo'; // Add an alt attribute for accessibility
+
+  // Add an event listener to the logo
+  logo.addEventListener('click', function() {
+    window.location.href = 'index.html'; // Event listener to take you back to the homepage
+  });
 
   const tabs = createTabs();
   const notifications = createNotifications();

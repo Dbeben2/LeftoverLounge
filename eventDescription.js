@@ -65,9 +65,6 @@ function createTab(tabName) {
   }
 
 
-
-
-
   function createEventDescription() {
     const createEventDetails = document.createElement('div');
     createEventDetails.classList.add('create-Event');
@@ -77,8 +74,13 @@ function createTab(tabName) {
   
     const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = 'images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
+    logo.src = 'images/LeftoverLoungeLogo.png'; 
     logo.alt = 'Logo'; // Add an alt attribute for accessibility
+
+     // Add an event listener to the logo
+    logo.addEventListener('click', function() {
+      window.location.href = 'index.html'; // Event listener to take you back to the homepage
+    });
   
     const tabs = createTabs();
     const notifications = createNotifications();
