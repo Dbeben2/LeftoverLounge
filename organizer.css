@@ -102,6 +102,8 @@ p {
   .event-management-box-container,
   .feedback-box-container {
     display: inline-block;
+    height: 400px;
+    overflow: scroll;
     padding: 6px;
     padding-right: 80px; /* Increase the padding at the right */
     padding-left: 70px; /* Increase the padding at the left */
