@@ -301,7 +301,7 @@ function createOrganizerDashboard() {
 
   const logo = document.createElement('img');
   logo.classList.add('logo');
-  logo.src = '../Images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
+  logo.src = '/LeftoverLounge/Images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
   logo.alt = 'Logo'; // Add an alt attribute for accessibility
 
   const tabs = createTabs();
