@@ -95,7 +95,7 @@ function createEventBox() {
   imageUploadButton.classList.add('image-upload-button'); // Add class for styling
 
   const imageUploadButtonIcon = document.createElement('img');
-  imageUploadButtonIcon.src = 'images/file.png'; // Add the path to your image
+  imageUploadButtonIcon.src = 'Images/file.png'; // Add the path to your image
   imageUploadButtonIcon.alt = 'Image Upload Icon'; // Add alt text for accessibility
   imageUploadButtonIcon.classList.add('image-upload-icon'); // Add class for styling
 
@@ -138,7 +138,7 @@ function createCreateEvent() {
 
   const logo = document.createElement('img');
   logo.classList.add('logo');
-  logo.src = 'images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
+  logo.src = 'Images/LeftoverLoungeLogo.png'; // Replace 'logo.png' with the path to your logo image file
   logo.alt = 'Logo'; // Add an alt attribute for accessibility
 
   const tabs = createTabs();
