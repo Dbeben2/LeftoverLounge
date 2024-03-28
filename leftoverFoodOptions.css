@@ -1,0 +1,135 @@
+body {
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    background-color: #E9F6FE;
+}
+  
+.create-Event {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #E9F6FE;
+}
+  
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+  
+.logo {
+    width: 100px;
+    height: auto;
+}
+  
+.tabs {
+    padding-left: 30px;
+    display: flex;
+    /* overflow-x: auto; Allow horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+}
+  
+.tab {
+    padding: 10px;
+    margin-right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 18px; /* Increase font size */
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+}
+  
+.notifications {
+    display: flex;
+    align-items: center;
+}
+  
+.notify {
+    width: 30px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    padding-right: 20px;
+    position: fixed;
+    top: 50px; /* Adjust the distance from the top as needed */
+    right: 160px; /* Adjust the distance from the right as needed */
+}
+  
+.profile-button {
+    display: flex; 
+    align-items: center;
+    margin-top: 20px; 
+    justify-content: center; 
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: 810px;
+    font-size: 20px;
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+  }
+  
+.person {
+    width: 60px;
+    height: 60px;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+  
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+  
+.content-container {
+    display: flex;
+}
+  
+.event {
+    width: 1000px;
+    height: 300px;
+    margin-top: 10px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.club-logo{
+    margin-top: 45px;
+    margin-right: 27px;
+    width: 80px;
+    height: 45px;
+}
+
+.event-box {
+    margin-top: 50px;
+    border: 2px solid black;
+}
+
+.event-name-text {
+    display: flex;
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    font-size: 40px;
+    flex-direction: column; /* Align items vertically */
+}
+
+.box {
+    display: flex;
+    margin-top: 1px;
+    margin-left: 30px;
+}
+
+.food-drinks-options {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+}
+
+.food-drinks-options-text {
+    display: block;
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.scrollable-box {
+    overflow-y: auto;
+}
