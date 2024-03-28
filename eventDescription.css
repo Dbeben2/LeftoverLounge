@@ -1,73 +1,130 @@
 body {
-    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
-    background-color: #E9F6FE;
-  }
-  
-  h2{
-    font-family: "DM Sans", sans-serif; /* Change font for headings */
-  }
+  font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+  background-color: #E9F6FE;
+}
 
-  .heading{
-    font-size: 40px;
-  }
+clubMeeting{
+  font-family: "DM Sans", sans-serif; /* Change font for headings */
+  align-items: center;
+}
 
-  .event-details{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    position: relative; /* Ensure the container is positioned relatively */
-  }
+.heading{
+  font-size: 20px;
+}
 
-  .header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: #f0f0f0;
-  }
+.event-details{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative; /* Ensure the container is positioned relatively */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 10px;
+  margin-right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 18px; /* Increase font size */
+}
+
+.notifications {
+  display: flex;
+  align-items: center;
+}
+
+.notify {
+  width: 30px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  padding-right: 20px;
+  position: fixed;
+  top: 50px; /* Adjust the distance from the top as needed */
+  right: 150px; /* Adjust the distance from the right as needed */
+}
+.clubLogo{
+  width: 95px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  position: fixed;
+  top: 40px; /* Adjust the distance from the top as needed */
+  right: 50px; /* Adjust the distance from the right as needed */
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*inner box*/
+
+.details{
+  background-color: rgb(71, 222, 233);
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: calc(100% - 160px); /* Ensure the inner box grows vertically and accommodates space for the button */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  border: 2px solid black; /* Add border */
   
-  .logo {
-    width: 100px;
-    height: auto;
-  }
+}
+
+.text-line {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+
+
+  .event-details-box-container{
+  display: inline-block;
+  padding: 6px;
+  margin-top: 50px;
+  padding-left: 20px; /* Increase the padding at the left */
+  width: calc(55% - 140px); /* Adjust the width to occupy half of the available space */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  border: 2px solid black; /* Add border */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow */
+  background-color: white;
+}
+
+
+.feedback-button {
+  position: absolute; /* Position the button absolutely */
+  background-color: #82E36A;
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding around the button text */
+  border: none; /* No border */
+  border-radius: 2px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  font-size: 14px; /* Font size */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  top: 58%; /* Adjust vertical position as needed */
+  right: 385px; /* Adjust horizontal position to move the button to the right */
   
-  .tabs {
-    display: flex;
-  }
-  
-  .tab {
-    padding: 10px;
-    margin-right: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 18px; /* Increase font size */
-  }
-  
-  .notifications {
-    display: flex;
-    align-items: center;
-  }
-  
-  .notify {
-    width: 30px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    padding-right: 20px;
-    position: fixed;
-    top: 50px; /* Adjust the distance from the top as needed */
-    right: 150px; /* Adjust the distance from the right as needed */
-  }
-  .clubLogo{
-    width: 95px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    position: fixed;
-    top: 40px; /* Adjust the distance from the top as needed */
-    right: 50px; /* Adjust the distance from the right as needed */
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}
+
+.feedback-button:hover {
+  background-color: #0056b3; /* Darker blue background color on hover */
+}

@@ -53,11 +53,52 @@ function createTab(tabName) {
     eventDetailsBox.classList.add('event-details-box');
 
     //Heading 
-    const heading = document.createElement('h2');
-    heading.textContent = 'Meeting: SIG Game Lead';
+    const heading = document.createElement('clubMeeting');
+    heading.textContent = 'Club Event Heading';
     heading.classList.add('heading'); // Add class for styling
 
+    //Logo - will depend on the club- add later 
+
+     // Inner Box
+     const innerBox = document.createElement('div');
+     innerBox.classList.add('details'); // Add class for styling
+
+       // Lines for Location, Date, Time, Food, and Description
+    const locationLine = document.createElement('div');
+    locationLine.textContent = 'Location: ';
+    locationLine.classList.add('text-line'); // Add class for styling
+
+    const dateLine = document.createElement('div');
+    dateLine.textContent = 'Date: ';
+    dateLine.classList.add('text-line'); // Add class for styling
+
+    const timeLine = document.createElement('div');
+    timeLine.textContent = 'Time: ';
+    timeLine.classList.add('text-line');
+
+    const foodLine = document.createElement('div');
+    foodLine.textContent = 'Food: ';
+    foodLine.classList.add('text-line');
+
+    const descriptionLine = document.createElement('div');
+    descriptionLine.textContent = 'Description: ';
+    descriptionLine.classList.add('text-line');
+
+     // Button for Event Feedback
+     const feedbackButton = document.createElement('button');
+     feedbackButton.textContent = 'Event Feedback';
+     feedbackButton.classList.add('feedback-button'); // Add class for styling
+
+    // Appending lines to the inner box
+    innerBox.appendChild(locationLine);
+    innerBox.appendChild(dateLine);
+    innerBox.appendChild(timeLine);
+    innerBox.appendChild(foodLine);
+    innerBox.appendChild(descriptionLine);
+
     eventDetailsBox.appendChild(heading)
+    eventDetailsBox.appendChild(innerBox);
+    eventDetailsBox.appendChild(feedbackButton);
     eventDetailsBoxContainer.appendChild(eventDetailsBox)
 
     return eventDetailsBoxContainer;
@@ -65,7 +106,7 @@ function createTab(tabName) {
   }
 
 
-  function createEventDescription() {
+  function createEventDescriptionPage() {
     const createEventDetails = document.createElement('div');
     createEventDetails.classList.add('create-Event');
   
@@ -102,4 +143,4 @@ function createTab(tabName) {
     return createEventDetails;
   }
   
-  module.exports = createEventDescription;
+  module.exports = createEventDescriptionPage;
