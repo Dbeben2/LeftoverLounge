@@ -126,6 +126,10 @@ function createEventManagementBox() {
   sendUpdateButton1.textContent = 'Send Update';
   sendUpdateButton1.classList.add('send-update-button'); // Add class for styling
 
+  sendUpdateButton1.addEventListener('click', function() {
+    window.location.href = 'USP.html';
+  });
+
   // Create the "edit event" button for ACM Meetings: SIG Game Lead 3PM 4/29
   const editEventButton1 = document.createElement('button');
   editEventButton1.textContent = 'Edit Event';
@@ -175,6 +179,9 @@ function createEventManagementBox() {
   sendUpdateButton2.textContent = 'Send Update';
   sendUpdateButton2.classList.add('send-update-button'); // Add class for styling
   sendUpdateButton2.prepend(sendUpdateButtonIconClone); // Append the cloned icon to the second button
+  sendUpdateButton2.addEventListener('click', function() {
+    window.location.href = 'USP.html';
+  });
 
   // Create the "edit event" button for ACM Meetings: SIG Game Lead 3PM 4/29
   const editEventButton2 = document.createElement('button');

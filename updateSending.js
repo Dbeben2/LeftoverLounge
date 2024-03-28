@@ -67,7 +67,11 @@ function updateSendingBox() {
     const sendUpdate = document.createElement('button');
     sendUpdate.textContent = 'Send Update';
     sendUpdate.classList.add('send-update'); // Add class for styling
-        
+    sendUpdate.addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+   
+
     const event = document.createElement('div');
     event.classList.add('event'); // Add class for styling
 
