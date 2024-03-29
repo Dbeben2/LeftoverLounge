@@ -23,7 +23,8 @@ function loadGoogleMapsScript(apiKey) {
 }
 
 // Fetch the API key from the server
-fetch('http://localhost:3000/api/key')
+//fetch('http://localhost:3000/api/key')
+fetch('/api/data')
     .then(response => response.json())
     .then(data => {
         console.log('API Key from server:', data.apiKey);
