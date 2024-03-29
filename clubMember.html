@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clubMember</title>
+    <link rel="stylesheet" href="clubMember.css">
+</head>
+<body>
+    <!-- Menu bar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="#home" class="logo">
+                <img src="Images/LeftoverLoungeLogo.png" alt="Website Logo" style="height: 60px;">
+            </a>
+            <a href="#events">Events Near Me</a>
+            <a href="#calendar">Calendar</a>
+            <a href="#clubs">Clubs At UIC</a>
+            <a href="#points">Your Points</a>
+        </div>
+
+           <!-- Right-aligned items -->
+        <div class="navbar-right">
+            <a href="#notifications">
+                <img src="Images/notify.png" alt="Notifications" style="height: 40px;"> <!-- image for notification icon -->
+            </a>
+            <a href="#userprofile">
+                <img src="Images/agent1.png" alt="User" style="height: 40px;"> <!--  image for user -->
+            </a>
+            <span class="username">Justin</span>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div id="calendar">
+            <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Your_Timezone&mode=WEEK" style="border: 0" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="grid-container">
+            <div class="events-list">
+                <!-- Dynamically generated list of student events goes here -->
+                <ul>
+                    <li>Event 1</li>
+                    <li>Event 2</li>
+                    <!-- More events -->
+                </ul>
+            </div>
+            <div id="map">
+                <!-- Google Maps integration -->
+            </div>
+        </div>
+    </div>
+
+    <script src="clubMember.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6Se-KL3H3IEZkrgxvsDqkGFIiHDjjwJg&callback=initMap" type="text/javascript"></script>
+
+</body>
+</html>
