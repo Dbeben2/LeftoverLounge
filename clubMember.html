@@ -24,7 +24,7 @@
             <a href="#notifications">
                 <img src="Images/notify.png" alt="Notifications" style="height: 40px;"> <!-- image for notification icon -->
             </a>
-            <a href="#userprofile">
+            <a href="#userprofile" id="userProfileLink">
                 <img src="Images/agent1.png" alt="User" style="height: 40px;"> <!--  image for user -->
             </a>
             <span class="username">Justin</span>
@@ -48,5 +48,16 @@
         </div>
     </div>
     <script src="clubMember.js"></script>
+
+    <script>
+        // Get the user profile link element by its ID
+        const userProfileLink = document.getElementById('userProfileLink');
+
+        // Add an event listener to the user profile link
+        userProfileLink.addEventListener('click', function() {
+            // Redirect to the index.html page
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>
