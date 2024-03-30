@@ -18,6 +18,6 @@ app.get('/api/key', (req, res) => {
     res.json({ apiKey: process.env.API_KEY });
 });
 
-app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server listening at http://34.42.177.65:${port}`);
 });
