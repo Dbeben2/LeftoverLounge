@@ -11,8 +11,8 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'
-  }));
+    origin: 'https://dbeben2.github.io'
+}));
 
 app.get('/api/key', (req, res) => {
     res.json({ apiKey: process.env.API_KEY });
