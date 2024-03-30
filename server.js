@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: 'https://dbeben2.github.io' // Adjust this according to your CORS policy
+    origin: 'https://dbeben2.github.io/LeftoverLounge/clubMember.html' // Adjust this according to your CORS policy
 }));
 
 // Endpoint to provide the API key
