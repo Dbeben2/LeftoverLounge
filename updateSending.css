@@ -35,6 +35,10 @@ body {
     text-decoration: underline;
     font-size: 18px; /* Increase font size */
 }
+
+.tab:hover {
+    background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
   
 .notifications {
     display: flex;

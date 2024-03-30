@@ -39,7 +39,11 @@ body {
     font-size: 18px; /* Increase font size */
     font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
 }
-  
+
+.tab:hover {
+    background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
+
 .notifications {
     display: flex;
     align-items: center;
