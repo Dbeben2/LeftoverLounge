@@ -72,36 +72,70 @@ body {
     height: 400px; /* Minimum height to ensure visibility */
 }
 
-/* event cards */
+
 .event-card {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr; /* Logo column, Club name column, Event name column */
+    grid-template-rows: auto auto; /* Two rows: 1 for names, 1 for buttons */
+    gap: 10px; /* Space between columns and rows */
     background-color: #FFFFFF;
-    margin: 10px;
+    margin: 10px 0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center; /* Align items vertically in the center */
 }
 
 .event-logo {
-    height: 100px; /* Adjust based on your logo size */
-    width: 100px; /* Adjust based on your logo size */
-    object-fit: contain;
-    margin-bottom: 20px;
+    grid-row: 1 / span 2; /* Logo spans two rows */
+    width: 100%; /* Make logo fill the column width */
+    object-fit: cover; /* Adjust this as needed to maintain aspect ratio */
 }
 
-.event-name, .event-club {
-    margin: 5px 0;
+.event-club, .event-name {
+    margin: 0; /* Remove margins if any */
+}
+
+.event-Time {
+    font-style: italic;
+    font-size: 0.9em; /* Making the location text slightly smaller */
+    color: #666; /* A lighter shade of black for contrast */
+    grid-column: 2; /* Ensure it aligns under the club name */
+}
+
+.event-location {
+    font-style: italic;
+    font-size: 0.9em; /* Making the location text slightly smaller */
+    color: #666; /* A lighter shade of black for contrast */
+    grid-column: 3; /* Ensure it aligns under the event name */
 }
 
 .event-buttons a {
     text-decoration: none;
     color: white;
-    background-color: #007BFF;
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    display: inline-block;
+    border-radius: 20px; /* Rounded corners */
+    text-align: center;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    width: var(--button-width); /* Adjustable width using CSS variable */
+    display: inline-block; /* Necessary for width to take effect */
 }
 
-.event-buttons a.request-change {
-    background-color: #FFC107;
+.event-rsvp {
+    background-color: #28a745; /* Green */
+    grid-column: 2; /* Position under club name */
+}
+
+.event-request-change {
+    background-color: #ffc107; /* Yellow */
+    grid-column: 3; /* Position under event name */
+}
+
+/* Hover effects */
+.event-rsvp:hover {
+    background-color: #5cd65c; /* Lighter green */
+}
+
+.event-request-change:hover {
+    background-color: #ffdb4d; /* Lighter yellow */
 }

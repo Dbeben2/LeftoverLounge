@@ -21,21 +21,25 @@ function loadGoogleMapsScript(apiKey) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Example events data
+    // events data
     var eventsData = [
         {
             logo: 'Images/acmLogo.png',
-            name: 'Meet & Greet',
+            name: 'Event: Meet & Greet',
             club: 'ACM',
-            rsvpLink: 'rsvpPage1.html',
-            requestLink: 'requestChange1.html'
+            Time: 'Time: TBD',
+            location: 'Location: TBD',
+            rsvpLink: 'rsvp.html?event=Event1',
+            requestLink: 'changeRequest.html?event=Event1'
         },
         {
             logo: 'Images/fencing.png',
-            name: 'Event 2 Name',
-            club: 'Club Name 2',
-            rsvpLink: 'rsvpPage2.html',
-            requestLink: 'requestChange2.html'
+            name: 'Event: Fencing Meet',
+            club: 'Fencing Club',
+            Time: 'Time: TBD',
+            location: 'Location: TBD',
+            rsvpLink: 'rsvp.html?event=Event2',
+            requestLink: 'changeRequest.html?event=Event2'
         }
         // Add more events as needed
     ];
@@ -46,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
         eventCard.classList.add('event-card');
         eventCard.innerHTML = `
             <img src="${event.logo}" alt="Event Logo" class="event-logo">
-            <div class="event-name">${event.name}</div>
             <div class="event-club">${event.club}</div>
-            <div class="event-buttons">
-                <a href="${event.rsvpLink}" class="rsvp">RSVP</a>
-                <a href="${event.requestLink}" class="request-change">Request Change</a>
-            </div>
+            <div class="event-name">${event.name}</div>
+            <div class="event-Time">${event.Time}</div> 
+            <div class="event-location">${event.location}</div> 
+            <a href="${event.rsvpLink}" class="event-buttons event-rsvp">RSVP</a>
+            <a href="${event.requestLink}" class="event-buttons event-request-change">Request Change</a>
         `;
         eventsContainer.appendChild(eventCard);
     });

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div id="formContainer">
+        <iframe id="rsvpForm" src="" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Mapping of event IDs to their respective Google Form URLs
+        const formUrls = {
+            'event1': 'https://forms.gle/sx2sKsMkZ26Fm1Ad7',
+            'event2': 'https://forms.gle/TmoPpw8Us5RFaqCv6',
+            // Add more mappings as needed
+        };
+
+        const eventId = getQueryParam('eventId');
+        const formUrl = formUrls[eventId];
+
+        if (formUrl) {
+            document.getElementById('rsvpForm').src = formUrl;
+        } else {
+            document.getElementById('formContainer').innerHTML = '<p>Error: Form not found.</p>';
+        }
+    </script>
+</body>
+</html>
