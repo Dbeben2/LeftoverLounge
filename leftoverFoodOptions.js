@@ -52,7 +52,9 @@ function createBox(imageSource, textContent) {
     const image = document.createElement('img');
     image.src = imageSource;
     image.alt = 'Image'; // Set alt attribute for accessibility
-
+    image.width = 60; // Set width of the image
+    image.height = 60; // Set height of the image
+    
     // Create a paragraph element for the text content
     const text = document.createElement('p');
     text.textContent = textContent;
@@ -70,6 +72,7 @@ function createScrollableBox() {
     scrollableBox.classList.add('scrollable-box');
 
     const item1 = createBox('Images/taco.png', 'Taco');
+    item1.classList.add('item1');
     const box1 = document.createElement('div');
     box1.classList.add('box1');
     box1.appendChild(item1);
@@ -83,8 +86,11 @@ function createScrollableBox() {
     box1.appendChild(img2);
 
     const item2 = createBox('Images/chicken-breast.png', 'Grilled Chicken');
+    item2.classList.add('item1');
 
     const item3 = createBox('Images/churros.png', 'Churros');
+    item3.classList.add('item1');
+
     const box3 = document.createElement('div');
     box3.classList.add('box3');
     box3.appendChild(item3);
@@ -94,9 +100,13 @@ function createScrollableBox() {
     box3.appendChild(img3);
 
     const item4 = createBox('Images/lemonade.png', 'Lemonade');
+    item4.classList.add('item1');
     const item5 = createBox('Images/mac-and-cheese.png', 'Mac and Cheese');
+    item5.classList.add('item1');
     const item6 = createBox('Images/orange-juice.png', 'Orange Juice');
+    item6.classList.add('item1');
     const item7 = createBox('Images/pancakes.png', 'Pancake');
+    item7.classList.add('item1');
 
     scrollableBox.appendChild(box1);
     scrollableBox.appendChild(item2);

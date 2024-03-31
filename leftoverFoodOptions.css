@@ -39,7 +39,11 @@ body {
     font-size: 18px; /* Increase font size */
     font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
 }
-  
+
+.tab:hover {
+    background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
+
 .notifications {
     display: flex;
     align-items: center;
@@ -49,7 +53,8 @@ body {
     width: 30px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     padding-right: 20px;
-    position: fixed;
+    margin-left: 740px;
+    display: flex;
     top: 50px; /* Adjust the distance from the top as needed */
     right: 160px; /* Adjust the distance from the right as needed */
 }
@@ -61,7 +66,7 @@ body {
     justify-content: center; 
     margin-bottom: 20px;
     text-align: center;
-    margin-left: 810px;
+    margin-left: 8px;
     font-size: 20px;
     font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
   }
@@ -106,14 +111,14 @@ body {
 .event-name-text {
     display: flex;
     font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
-    font-size: 40px;
+    font-size: 38px;
     flex-direction: column; /* Align items vertically */
 }
 
 .box {
     display: flex;
     margin-top: 1px;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .food-drinks-options {
@@ -131,5 +136,59 @@ body {
 }
 
 .scrollable-box {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    border: 2px solid black;
     overflow-y: auto;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.img1 {
+    margin-left: 260px;
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+}
+
+.img2 {
+    width: 50px;
+    height: 50px;
+}
+
+.img3 {
+    margin-left: 280px;
+    width: 50px;
+    height: 50px;
+}
+
+.box1 {
+    display: flex; /* Set to flex to align items in one line */
+    align-items: center; /* Align items vertically */
+}
+
+.item1 {
+    display: flex; /* Set to flex to align items in one line */
+    align-items: center; /* Align items vertically */
+}
+
+.item1 p {
+    font-family: "DM Sans", sans-serif; /* Change the font for the text */
+    font-size: 30px; /* Adjust font size as needed */
+    margin: 0; /* Remove default margin */
+    padding-left: 10px; /* Add left padding */
+}
+
+.item1 img {
+    /* Add your CSS rules here to manipulate the image */
+    width: 60px; /* Set width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 5px;
+    margin-left: 10px; /* Add margin as needed */
+}
+
+.box3 {
+    display: flex; /* Set to flex to align items in one line */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px; /* Adjust margin as needed */
 }

@@ -40,6 +40,10 @@ h2{
   font-size: 18px; /* Increase font size */
 }
 
+.tab:hover {
+  background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
+
 .notifications {
   display: flex;
   align-items: center;
@@ -105,7 +109,6 @@ h2{
   display: block;
   margin-bottom: 20px;
 }
-
 
 .description{
   width: 1500px;

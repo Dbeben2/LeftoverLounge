@@ -40,6 +40,11 @@ function createNotifications() {
   clubName.alt = 'Club Logo'
   clubName.classList.add('clubLogo'); // Add a class to the image for styling
 
+  clubName.addEventListener('click', function() {
+    window.location.href = 'clubMember.html'; // Event listener to take you back to the homepage
+  });
+
+
   notifications.appendChild(notify);
   notifications.appendChild(clubName);
 
@@ -347,6 +352,12 @@ function createOrganizerDashboard() {
   header.appendChild(logo);
   header.appendChild(tabs);
   header.appendChild(notifications);
+
+  // Add an event listener to the logo
+  notifications.addEventListener('click', function() {
+      window.location.href = 'clubMember.html'; // Event listener to take you back to the homepage
+    });
+  
 
   const mainContent = document.createElement('main');
   mainContent.classList.add('main-content');
