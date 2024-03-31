@@ -72,3 +72,36 @@ body {
     height: 400px; /* Minimum height to ensure visibility */
 }
 
+/* event cards */
+.event-card {
+    background-color: #FFFFFF;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-logo {
+    height: 100px; /* Adjust based on your logo size */
+    width: 100px; /* Adjust based on your logo size */
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.event-name, .event-club {
+    margin: 5px 0;
+}
+
+.event-buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.event-buttons a.request-change {
+    background-color: #FFC107;
+}
