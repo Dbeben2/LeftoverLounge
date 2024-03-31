@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             club: 'ACM',
             Time: 'Time: TBD',
             location: 'Location: TBD',
-            rsvpLink: 'rsvp.html?event=Event1',
+            rsvpLink: 'rsvp.html?event=event1',
             requestLink: 'changeRequest.html?event=Event1'
         },
         {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             club: 'Fencing Club',
             Time: 'Time: TBD',
             location: 'Location: TBD',
-            rsvpLink: 'rsvp.html?event=Event2',
+            rsvpLink: 'rsvp.html?event=event2',
             requestLink: 'changeRequest.html?event=Event2'
         }
         // Add more events as needed
