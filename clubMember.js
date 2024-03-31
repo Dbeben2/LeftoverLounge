@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Time: 'Time: TBD',
             location: 'Location: TBD',
             rsvpLink: 'rsvp.html?event=event1',
-            requestLink: 'changeRequest.html?event=Event1'
+            requestLink: 'changeRequest.html?event=event1'
         },
         {
             logo: 'Images/fencing.png',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Time: 'Time: TBD',
             location: 'Location: TBD',
             rsvpLink: 'rsvp.html?event=event2',
-            requestLink: 'changeRequest.html?event=Event2'
+            requestLink: 'changeRequest.html?event=event2'
         }
         // Add more events as needed
     ];

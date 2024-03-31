@@ -1,0 +1,10 @@
+#formContainer {
+    padding-top: 30px; /* Adjust the value as needed */
+}
+
+#rsvpForm {
+    width: 90%; /* or 100% to fill the container */
+    height: 800px; /* Adjust height as needed */
+    border: none; /* Optional: Removes the border */
+    margin: 0 auto; /* Center the iframe if less than 100% width */
+}
