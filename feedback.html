@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clubMember</title>
+    <link rel="stylesheet" href="clubMember.css">
+</head>
+<body>
+    <!-- Menu bar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="#home" class="logo">
+                <img src="Images/LeftoverLoungeLogo.png" alt="Website Logo" style="height: 60px;">
+            </a>
+            <a href="#events">Events Near Me</a>
+            <a href="#calendar">Calendar</a>
+            <a href="#clubs">Clubs At UIC</a>
+            <a href="#points">Your Points</a>
+        </div>
+
+           <!-- Right-aligned items -->
+        <div class="navbar-right">
+            <a href="#notifications">
+                <img src="Images/notify.png" alt="Notifications" style="height: 40px;"> <!-- image for notification icon -->
+            </a>
+            <a href="#userprofile" id="userProfileLink">
+                <img src="Images/agent1.png" alt="User" style="height: 40px;"> <!--  image for user -->
+            </a>
+            <span class="username">Justin</span>
+        </div>
+    </div>
+
+    <!-- Redirect to index -->
+    <script>
+        // Get the user profile link element by its ID
+        const userProfileLink = document.getElementById('userProfileLink');
+
+        // Add an event listener to the user profile link
+        userProfileLink.addEventListener('click', function() {
+            // Redirect to the index.html page
+            window.location.href = 'index.html';
+        });
+    </script>
+
+    <div id="formContainer">
+        <iframe id="rsvpForm" src="" width="95%" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+    <script>
+        // Mapping of event IDs to their respective Google Form URLs
+        const formUrls = {
+            'event1': '',
+            'event2': '',
+            // Add more mappings as needed
+        };
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Note the change here to 'event' to match the updated query parameter
+        const eventId = getQueryParam('event');
+        const formUrl = formUrls[eventId];
+        if (formUrl) {
+            document.getElementById('rsvpForm').src = formUrl;
+        } else {
+            document.getElementById('formContainer').innerHTML = '<p>Error: Form not found.</p>';
+        }
+    </script>
+    
+</body>
+</html>
