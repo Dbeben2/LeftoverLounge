@@ -118,7 +118,6 @@ function createTab(tabName) {
 }
 
   
-  
   function createEditEvent() {
     const createEvent = document.createElement('div');
     createEvent.classList.add('create-Event');

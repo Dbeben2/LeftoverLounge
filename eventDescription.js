@@ -1,3 +1,4 @@
+
 function createTab(tabName) {
   const tab = document.createElement('button'); // Create button element
   tab.classList.add('tab');
@@ -9,7 +10,7 @@ function createTabs() {
   const tabs = document.createElement('div');
   tabs.classList.add('tabs');
 
-  const tabNames = ['Menu', 'Create Events', 'Analytics'];
+  const tabNames = ['Events Near Me', 'Calendar', 'Clubs at UIC', 'Your Points'];
   tabNames.forEach(tabName => {
     const tab = createTab(tabName);
     tabs.appendChild(tab);
@@ -34,85 +35,87 @@ function createNotifications() {
   notify.alt = 'Notifications';
   notify.classList.add('notify'); // Add a class to the image for styling
 
-  const clubName = document.createElement('img');
-  clubName.src = 'images/acmLogo.png';
-  clubName.alt = 'Club Logo'
-  clubName.classList.add('clubLogo'); // Add a class to the image for styling
+  const userProfile = document.createElement('img');
+  userProfile.src = 'images/agent1.png';
+  userProfile.alt = 'Club Logo'
+  userProfile.classList.add('userProfile'); // Add a class to the image for styling
 
   notifications.appendChild(notify);
-  notifications.appendChild(clubName);
+  notifications.appendChild(userProfile);
+  
 
   return notifications;
 }
 
-function eventDetailsBox(){
-  const eventDetailsBoxContainer = document.createElement('div');
-  eventDetailsBoxContainer.classList.add('event-details-box-container');
 
-  const eventDetailsBox = document.createElement('div');
-  eventDetailsBox.classList.add('event-details-box');
+function createEventBox(eventName, eventDate, eventTime, eventLocation, eventFood, eventDescription) {
+  // Create the event management box container
+  const eventBoxContainer = document.createElement('div');
+  eventBoxContainer.classList.add('event-box-container');
 
-  //Heading 
-  const heading = document.createElement('clubMeeting');
-  heading.textContent = 'Club Event Heading';
-  heading.classList.add('heading'); // Add class for styling
+  // Create the event management box
+  const eventBox = document.createElement('div');
+  eventBox.classList.add('event-box');
 
-  //Logo - will depend on the club- add later 
+  // Create the heading for the event management box
+  const heading = document.createElement('h2');
+  heading.textContent = 'Event Details'
+  heading.classList.add('event-heading'); // Add class for styling
 
-   // Inner Box
-   const innerBox = document.createElement('div');
-   innerBox.classList.add('details'); // Add class for styling
+  const event = document.createElement('div');
+  event.classList.add('event'); // Add class for styling
 
-     // Lines for Location, Date, Time, Food, and Description
-  const locationLine = document.createElement('div');
-  locationLine.textContent = 'Location: ';
-  locationLine.classList.add('text-line'); // Add class for styling
+  const location = document.createElement('span');
+  location.textContent = 'Location:';
+  location.classList.add('Location'); // Add a class for styling
 
-  const dateLine = document.createElement('div');
-  dateLine.textContent = 'Date: ';
-  dateLine.classList.add('text-line'); // Add class for styling
+  const date = document.createElement('span');
+  date.textContent = 'Date:';
+  date.classList.add('date'); // Add a class for styling
 
-  const timeLine = document.createElement('div');
-  timeLine.textContent = 'Time: ';
-  timeLine.classList.add('text-line');
+  const time = document.createElement('span');
+  time.textContent = 'Time:';
+  time.classList.add('time'); // Add a class for styling
 
-  const foodLine = document.createElement('div');
-  foodLine.textContent = 'Food: ';
-  foodLine.classList.add('text-line');
+  const food = document.createElement('span');
+  food.textContent = 'Food:';
+  food.classList.add('food'); // Add a class for styling
 
-  const descriptionLine = document.createElement('div');
-  descriptionLine.textContent = 'Description: ';
-  descriptionLine.classList.add('text-line');
+  const description = document.createElement('span');
+  description.textContent = 'Description:';
+  description.classList.add('description'); // Add a class for styling
 
-   // Button for Event Feedback
-   const feedbackButton = document.createElement('button');
-   feedbackButton.textContent = 'Event Feedback';
-   feedbackButton.classList.add('feedback-button'); // Add class for styling
-   document.addEventListener('DOMContentLoaded', function() {
-    document.body.appendChild(feedbackButton);
-    feedbackButton.addEventListener('click', function() {window.location.href = 'feedback.html?event=event1';});
-   });
+  const publish = document.createElement('button');
+  publish.textContent = 'Publish';
+  publish.classList.add('publish'); // Add class for styling
 
-  // Appending lines to the inner box
-  innerBox.appendChild(locationLine);
-  innerBox.appendChild(dateLine);
-  innerBox.appendChild(timeLine);
-  innerBox.appendChild(foodLine);
-  innerBox.appendChild(descriptionLine);
+  publish.addEventListener('click', function() {
+    window.location.href = 'clubMember.html';
+  });
 
-  eventDetailsBox.appendChild(heading)
-  eventDetailsBox.appendChild(innerBox);
-  eventDetailsBox.appendChild(feedbackButton);
-  eventDetailsBoxContainer.appendChild(eventDetailsBox)
+  // Append the event elements to the event management box
+  event.appendChild(location);
+  event.appendChild(date);
+  event.appendChild(time);
+  event.appendChild(food);
+  event.appendChild(description);
+  event.appendChild(publish);  
 
-  return eventDetailsBoxContainer;
+  // Append the heading and events to the event management box
+  eventBox.appendChild(heading);
+  eventBox.appendChild(event);
 
+  // Append the event management box to the container
+  eventBoxContainer.appendChild(eventBox);
+
+  // Return the container
+  return eventBoxContainer;
 }
 
 
 function createEventDescriptionPage() {
-  const createEventDetails = document.createElement('div');
-  createEventDetails.classList.add('create-Event');
+  const createEvent = document.createElement('div');
+  createEvent.classList.add('create-Event');
 
   const header = document.createElement('header');
   header.classList.add('header');
@@ -122,31 +125,33 @@ function createEventDescriptionPage() {
   logo.src = 'images/LeftoverLoungeLogo.png'; 
   logo.alt = 'Logo'; // Add an alt attribute for accessibility
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Add event listener to the logo
-    document.querySelector('.logo').addEventListener('click', function() {
-        window.location.href = 'clubMember.html';
-    });
-});
+   // Add an event listener to the logo
+  logo.addEventListener('click', function() {
+    window.location.href = 'clubMember.html'; // Event listener to take you back to the homepage
+  });
 
   const tabs = createTabs();
   const notifications = createNotifications();
+  const userProfileText = document.createElement('span');
+  userProfileText.textContent = 'Justin';
+  userProfileText.classList.add('user-profile-text'); // Add a class for styling
 
   header.appendChild(logo);
   header.appendChild(tabs);
   header.appendChild(notifications);
+  header.appendChild(userProfileText);
 
   const mainContent = document.createElement('main');
   mainContent.classList.add('main-content');
 
-  const eventDBox = eventDetailsBox();
+  const eventBox = createEventBox();
 
-  mainContent.appendChild(eventDBox);
+  mainContent.appendChild(eventBox);
 
-  createEventDetails.appendChild(header);
-  createEventDetails.appendChild(mainContent);
+  createEvent.appendChild(header);
+  createEvent.appendChild(mainContent);
 
-  return createEventDetails;
+  return createEvent;
 }
 
 module.exports = createEventDescriptionPage;
