@@ -16,7 +16,7 @@
             <a href="#events">Events Near Me</a>
             <a href="#calendar">Calendar</a>
             <a href="#clubs">Clubs At UIC</a>
-            <a href="#points">Your Points</a>
+            <a href="#points" id="points">Your Points</a>
         </div>
 
            <!-- Right-aligned items -->
@@ -50,7 +50,7 @@
     <script>
         // Mapping of event IDs to their respective Google Form URLs
         const formUrls = {
-            'event1': '',
+            'event1': 'https://docs.google.com/forms/d/e/1FAIpQLSc2jL0vATpuNVVmmYDhryOYYpuzvtrYa4q6fJV5spzLd5GtZg/viewform?usp=sf_link',
             'event2': '',
             // Add more mappings as needed
         };
@@ -69,6 +69,7 @@
             document.getElementById('formContainer').innerHTML = '<p>Error: Form not found.</p>';
         }
     </script>
+    <script src="feedback.js"></script>
     
 </body>
 </html>

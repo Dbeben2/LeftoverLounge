@@ -88,6 +88,10 @@ function eventDetailsBox(){
    const feedbackButton = document.createElement('button');
    feedbackButton.textContent = 'Event Feedback';
    feedbackButton.classList.add('feedback-button'); // Add class for styling
+   document.addEventListener('DOMContentLoaded', function() {
+    document.body.appendChild(feedbackButton);
+    feedbackButton.addEventListener('click', function() {window.location.href = 'feedback.html?event=event1';});
+   });
 
   // Appending lines to the inner box
   innerBox.appendChild(locationLine);
@@ -118,10 +122,12 @@ function createEventDescriptionPage() {
   logo.src = 'images/LeftoverLoungeLogo.png'; 
   logo.alt = 'Logo'; // Add an alt attribute for accessibility
 
-   // Add an event listener to the logo
-  logo.addEventListener('click', function() {
-    window.location.href = 'index.html'; // Event listener to take you back to the homepage
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to the logo
+    document.querySelector('.logo').addEventListener('click', function() {
+        window.location.href = 'clubMember.html';
+    });
+});
 
   const tabs = createTabs();
   const notifications = createNotifications();

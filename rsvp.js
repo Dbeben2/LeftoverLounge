@@ -4,3 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'clubMember.html';
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const pointsLink = document.getElementById('points');
+    pointsLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = 'yourPoints.html';
+    });
+});

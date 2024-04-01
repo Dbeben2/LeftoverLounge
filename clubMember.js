@@ -18,7 +18,8 @@ function initMap() {
 
     // Create an info window with a link
     var infoWindow = new google.maps.InfoWindow({
-        content: '<div id="content"><p>Event Location. Click to learn more.</p><a href="LFO.html">Go to Left Over Food Page</a></div>'
+        content: '<div id="content"><p>Event Location. Click to learn more.</p><a href="LFO.html">Left Over Food</a><p><a href="ED.html">Event Details</a></p></div>'
+
     });
 
     // Add a click listener to the marker to open the info window
@@ -79,11 +80,27 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+  document.body.appendChild(feedbackButton);
+  feedbackButton.addEventListener('click', function() {
+    window.location.href = 'feedback.html';
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     // Add event listener to the logo
     document.querySelector('.logo').addEventListener('click', function() {
         window.location.href = 'clubMember.html';
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const pointsLink = document.getElementById('points');
+    pointsLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = 'yourPoints.html';
+    });
+});
+
 
 const apiKey = 'AIzaSyBJK6RcFZyq_vmK7ruJH6ztyF1l7YVdk7k';
 loadGoogleMapsScript(apiKey);
