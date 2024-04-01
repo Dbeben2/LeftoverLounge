@@ -22,7 +22,7 @@
            <!-- Right-aligned items -->
         <div class="navbar-right">
             <a href="#notifications">
-                <img src="Images/notify.png" alt="Notifications" style="height: 40px;"> <!-- image for notification icon -->
+                <img src="Images/notify.png" alt="Notifications" style="height: 40px;"> 
             </a>
             <a href="#userprofile" id="userProfileLink">
                 <img src="Images/agent1.png" alt="User" style="height: 40px;"> <!--  image for user -->
@@ -35,10 +35,10 @@
         <div class="grid-container">
             <div class="user-points">
                 <h2>Your Points</h2>
-                <p><strong>Points:</strong> <span id="userPoints">0</span></p>
-                <p><strong>Current Rank:</strong> <span id="currentRank">-</span></p>
-                <p><strong>Bonus Points:</strong> <span id="bonusPoints">0</span></p>
-                <p><strong>Last Week's Points:</strong> <span id="lastWeekPoints">0</span></p>
+                <p><strong>Points:</strong> <span id="userPoints">415</span></p>
+                <p><strong>Current Rank:</strong> <span id="currentRank">1284</span></p>
+                <p><strong>Bonus Points:</strong> <span id="bonusPoints">200</span></p>
+                <p><strong>Last Week's Points:</strong> <span id="lastWeekPoints">325</span></p>
             </div>
             <div class="leaderboard">
                 <h2>Leaderboard</h2>
@@ -52,9 +52,25 @@
                     <!-- Leaderboard entries will be populated here -->
                 </ul>
             </div>
-            <!-- Placeholder for future sections -->
-            <div class="section3">Section 3 Placeholder</div>
-            <div class="section4">Section 4 Placeholder</div>
+            
+            <div class="section3">
+                <h2>Club Locations Visited</h2>
+                <div id="visitedMap" style="width: 100%; height: 400px;"></div> <!-- Map container -->
+            </div>
+            
+            <!-- Google Maps JavaScript API -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+            
+            <div class="section4">
+                <h2>Badges Earned</h2>
+                <div class="badges-container">
+                    <!-- Example badges (replace with actual earned badges) -->
+                    <img src="badge1.png" alt="Badge 1" class="badge">
+                    <img src="badge2.png" alt="Badge 2" class="badge">
+                    <img src="badge3.png" alt="Badge 3" class="badge">
+                    <!-- Add more badges as needed -->
+                </div>
+            </div>
         </div>
 
         <!-- Redirect to index -->
@@ -68,8 +84,6 @@
                 window.location.href = 'index.html';
             });
         </script>
-
-
     <script src="clubMember.js"></script>
     <script src="yourPoints.js"></script>
 </body>

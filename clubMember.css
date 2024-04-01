@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    font-family: "DM Sans", sans-serif; /* font for the entire document */
+    font-family: "DM Sans", sans-serif;
     background-color: #E9F6FE;
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .navbar-left a.logo img {
-    margin-right: 20px; /* Ensures some space between the logo and the first link */
+    margin-right: 20px;
 }
 
 .navbar a:hover, .navbar-right a:hover {
@@ -33,20 +33,20 @@ body {
 }
 
 .navbar-right .username {
-    margin-left: 10px; /* Space between the user image and the username */
+    margin-left: 10px;
 }
 
 .content-container {
     display: grid;
-    grid-gap: 20px; /* Adjust this as necessary */
+    grid-gap: 20px;
 }
 
 #calendar {
     position: relative;
-    width: 100%; /* Calendar takes full width */
-    height: 0; /* Start with 0 height */
-    padding-top: 30%; /* This creates the space for the iframe */
-    grid-column: 1 / -1; /* Ensures calendar spans full width of the grid */
+    width: 100%;
+    height: 10;
+    padding-top: 30%;
+    grid-column: 1 / -1;
 }
 
 #calendar iframe {
@@ -54,110 +54,108 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Fill the space created by padding-top */
+    height: 100%;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
-    gap: 20px; /* Space between columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .events-list, #map {
-    min-height: 400px; /* Minimum height for the events list and map */
+    min-height: 400px;
 }
 
 #map {
     width: 100%;
-    height: 400px; /* Minimum height to ensure visibility */
+    height: 400px;
 }
-
 
 .event-card {
     display: grid;
-    grid-template-columns: 100px 1fr 1fr; /* Logo column, Club name column, Event name column */
-    grid-template-rows: auto auto; /* Two rows: 1 for names, 1 for buttons */
-    gap: 10px; /* Space between columns and rows */
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
     background-color: #FFFFFF;
     margin: 10px 0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
 }
 
 .event-logo {
-    grid-row: 1 / span 2; /* Logo spans two rows */
-    width: 100%; /* Make logo fill the column width */
-    object-fit: cover; /* Adjust this as needed to maintain aspect ratio */
+    grid-row: 1 / span 2;
+    width: 100%;
+    object-fit: cover;
 }
 
 .event-club, .event-name {
-    margin: 0; /* Remove margins if any */
+    margin: 0;
 }
 
 .event-Time {
     font-style: italic;
-    font-size: 0.9em; /* Making the location text slightly smaller */
-    color: #666; /* A lighter shade of black for contrast */
-    grid-column: 2; /* Ensure it aligns under the club name */
+    font-size: 0.9em;
+    color: #666;
+    grid-column: 2;
 }
 
 .event-location {
     font-style: italic;
-    font-size: 0.9em; /* Making the location text slightly smaller */
-    color: #666; /* A lighter shade of black for contrast */
-    grid-column: 3; /* Ensure it aligns under the event name */
+    font-size: 0.9em;
+    color: #666;
+    grid-column: 3;
 }
 
 .event-buttons a {
     text-decoration: none;
     color: white;
     padding: 10px 20px;
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 20px;
     text-align: center;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    width: var(--button-width); /* Adjustable width using CSS variable */
-    display: inline-block; /* Necessary for width to take effect */
+    transition: background-color 0.3s;
+    width: var(--button-width);
+    display: inline-block;
 }
 
 .event-rsvp {
-    background-color: #28a745; /* Green */
-    grid-column: 2; /* Position under club name */
+    background-color: #28a745;
+    grid-column: 2;
 }
 
 .event-request-change {
-    background-color: #ffc107; /* Yellow */
-    grid-column: 3; /* Position under event name */
+    background-color: #ffc107;
+    grid-column: 3;
 }
 
-/* Hover effects */
 .event-rsvp:hover {
-    background-color: #5cd65c; /* Lighter green */
+    background-color: #5cd65c;
 }
 
 .event-request-change:hover {
-    background-color: #ffdb4d; /* Lighter yellow */
+    background-color: #ffdb4d;
 }
 
 #formContainer {
-    padding-top: 30px; /* Adjust the value as needed */
+    padding-top: 30px;
 }
 
 #rsvpForm {
-    width: 90%; /* or 100% to fill the container */
-    height: 800px; /* Adjust height as needed */
-    border: none; /* Optional: Removes the border */
-    margin: 0 auto; /* Center the iframe if less than 100% width */
+    width: 90%;
+    height: 800px;
+    border: none;
+    margin: 0 auto;
 }
 
 #formContainer {
-    padding-top: 30px; /* Adjust the value as needed */
+    padding-top: 30px;
 }
 
 #rsvpForm {
-    width: 90%; /* or 100% to fill the container */
-    height: 800px; /* Adjust height as needed */
-    border: none; /* Optional: Removes the border */
-    margin: 0 auto; /* Center the iframe if less than 100% width */
+    width: 90%;
+    height: 800px;
+    border: none;
+    margin: 0 auto;
 }

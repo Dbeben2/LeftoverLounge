@@ -28,8 +28,6 @@ function initMap() {
     });
 }
 
-
-
 function loadGoogleMapsScript(apiKey) {
     var script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rsvpLink: 'rsvp.html?event=event2',
             requestLink: 'changeRequest.html?event=event2'
         }
-        // Add more events as needed
+
     ];
 
     var eventsContainer = document.getElementById('eventsContainer');
@@ -87,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Add event listener to the logo
     document.querySelector('.logo').addEventListener('click', function() {
         window.location.href = 'clubMember.html';
     });
