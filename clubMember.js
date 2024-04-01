@@ -78,5 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to the logo
+    document.querySelector('.logo').addEventListener('click', function() {
+        window.location.href = 'clubMember.html';
+    });
+});
+
 const apiKey = 'AIzaSyBJK6RcFZyq_vmK7ruJH6ztyF1l7YVdk7k';
 loadGoogleMapsScript(apiKey);
