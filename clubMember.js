@@ -3,14 +3,31 @@ function initMap() {
         zoom: 15,
         center: { lat: 41.8719, lng: -87.6479 },
     };
+
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    // Specify the location of the event
+    var eventLocation = { lat: 41.8719, lng: -87.6479 };
+
+    // Create a marker at the event location
     var marker = new google.maps.Marker({
-        position: { lat: 41.8719, lng: -87.6479 },
+        position: eventLocation,
         map: map,
         title: 'SCE'
     });
-    // Add more markers as needed
+
+    // Create an info window with a link
+    var infoWindow = new google.maps.InfoWindow({
+        content: '<div id="content"><p>Event Location. Click to learn more.</p><a href="LFO.html">Go to Left Over Food Page</a></div>'
+    });
+
+    // Add a click listener to the marker to open the info window
+    marker.addListener('click', function() {
+        infoWindow.open(map, marker);
+    });
 }
+
+
 
 function loadGoogleMapsScript(apiKey) {
     var script = document.createElement('script');

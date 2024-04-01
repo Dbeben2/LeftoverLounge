@@ -62,14 +62,13 @@
 
         // Note the change here to 'event' to match the updated query parameter
         const eventId = getQueryParam('event');
-
         const formUrl = formUrls[eventId];
-
         if (formUrl) {
             document.getElementById('rsvpForm').src = formUrl;
         } else {
             document.getElementById('formContainer').innerHTML = '<p>Error: Form not found.</p>';
         }
     </script>
+    
 </body>
 </html>
