@@ -25,25 +25,21 @@ function createNotifications() {
     notifications.classList.add('notifications');
   
     const notify = document.createElement('img');
-    notify.src = 'Images/notify.png';
+    notify.src = 'images/notify.png';
     notify.alt = 'Notifications';
     notify.classList.add('notify'); // Add a class to the image for styling
   
-    const profileButton = document.createElement('div');
-    profileButton.textContent = " Justin";
-    profileButton.classList.add('profile-button');
-
-    const person = document.createElement('img');
-    person.src = 'Images/agent2.png';
-    person.classList.add('person'); // Add a class to the image for styling
-
-    profileButton.prepend(person);
+    const userProfile = document.createElement('img');
+    userProfile.src = 'images/agent1.png';
+    userProfile.alt = 'Club Logo'
+    userProfile.classList.add('userProfile'); // Add a class to the image for styling
   
     notifications.appendChild(notify);
-    notifications.appendChild(profileButton);
+    notifications.appendChild(userProfile);
+    
   
     return notifications;
-}
+  }
 
 function createBox(imageSource, textContent) {
     const box = document.createElement('div'); // Create a box element
@@ -171,9 +167,9 @@ function createLeftoverFoodOptions() {
     header.classList.add('header');
   
     const logo = document.createElement('img');
-    logo.classList.add('logo');
     logo.src = 'Images/LeftoverLoungeLogo.png'; 
     logo.alt = 'Logo'; // Add an alt attribute for accessibility
+    logo.classList.add('logo');
 
     logo.addEventListener('click', function() {
       window.location.href = 'clubMember.html'; // Event listener to take you back to the homepage
@@ -181,10 +177,14 @@ function createLeftoverFoodOptions() {
   
     const tabs = createTabs();
     const notifications = createNotifications();
-  
+    const userProfileText = document.createElement('span');
+    userProfileText.textContent = 'Justin';
+    userProfileText.classList.add('user-profile-text'); // Add a class for styling
+
     header.appendChild(logo);
     header.appendChild(tabs);
     header.appendChild(notifications);
+    header.appendChild(userProfileText);
   
     const mainContent = document.createElement('main');
     mainContent.classList.add('main-content');

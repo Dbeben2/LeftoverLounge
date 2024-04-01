@@ -18,8 +18,7 @@ body {
 }
   
 .logo {
-    width: 100px;
-    height: auto;
+    height: 60px;
 }
   
 .tabs {
@@ -48,34 +47,30 @@ body {
     display: flex;
     align-items: center;
 }
+
+.userProfile{
+    width: 40px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 50px; /* Adjust the distance from the top as needed */
+    right: 100px; /* Adjust the distance from the right as needed */
+  }
   
 .notify {
-    width: 30px; /* Adjust the width as needed */
+    width: 40px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     padding-right: 20px;
-    margin-left: 740px;
-    display: flex;
+    position: absolute;
     top: 50px; /* Adjust the distance from the top as needed */
-    right: 160px; /* Adjust the distance from the right as needed */
-}
-  
-.profile-button {
-    display: flex; 
-    align-items: center;
-    margin-top: 20px; 
-    justify-content: center; 
-    margin-bottom: 20px;
-    text-align: center;
-    margin-left: 8px;
-    font-size: 20px;
-    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    right: 150px; /* Adjust the distance from the right as needed */
   }
   
 .person {
-    width: 60px;
-    height: 60px;
-    padding-right: 15px;
-    padding-left: 10px;
+    width: 40px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 50px; /* Adjust the distance from the top as needed */
+    right: 100px; /* Adjust the distance from the right as needed */
 }
   
 .main-content {
@@ -192,3 +187,13 @@ body {
     align-items: center; /* Align items vertically */
     margin-bottom: 10px; /* Adjust margin as needed */
 }
+
+.user-profile-text{
+    width: 40px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    padding-right: 20px;
+    position: absolute;
+    top: 60px; /* Adjust the distance from the top as needed */
+    right: 20px; /* Adjust the distance from the right as needed */
+  
+  }
