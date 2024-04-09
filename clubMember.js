@@ -98,6 +98,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const clubsLink = document.getElementById('clubs');
+    clubsLink.addEventListener('click', function(event) {
+        window.location.href = 'clubs.html';
+    });
+});
+
 
 const apiKey = 'AIzaSyBJK6RcFZyq_vmK7ruJH6ztyF1l7YVdk7k';
 loadGoogleMapsScript(apiKey);

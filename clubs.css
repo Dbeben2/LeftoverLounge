@@ -1,0 +1,161 @@
+body {
+  font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+  background-color: #E9F6FE;
+}
+
+h2{
+  font-family: "DM Sans", sans-serif; /* Change font for headings */
+}
+
+.create-Event {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #E9F6FE;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.logo {
+  height: 60px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 10px;
+  margin-right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 18px; /* Increase font size */
+}
+
+.tab:hover {
+  background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
+
+.notifications {
+  display: flex;
+  align-items: center;
+}
+
+.notify {
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  padding-right: 20px;
+  position: absolute;
+  top: 50px; /* Adjust the distance from the top as needed */
+  right: 150px; /* Adjust the distance from the right as needed */
+}
+
+.userProfile{
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute;
+  top: 50px; /* Adjust the distance from the top as needed */
+  right: 100px; /* Adjust the distance from the right as needed */
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  display: flex;
+}
+
+.event-box-container {
+  display: flex;
+}
+
+.event {
+  margin-top: 10px;
+}
+
+.event-heading {
+  font-size: 40px;
+}
+
+.event-name{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18pt;
+}
+
+.Location{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18pt;
+}
+
+.date{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18pt;
+}
+
+.time{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18pt;
+}
+
+.food{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18pt;
+}
+
+
+.description{
+  width: 1500px;
+  height: 150px;
+  display: block;
+  margin-bottom: 20px;
+  text-align: left;
+  text-align: top;
+  padding: 0;
+  font-size: 18pt;
+}
+
+.publish {
+  width: 300px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background-color: #82E36A;
+  font-size: 20px;
+}
+
+.user-profile-text{
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  padding-right: 20px;
+  position: absolute;
+  top: 60px; /* Adjust the distance from the top as needed */
+  right: 20px; /* Adjust the distance from the right as needed */
+
+}
