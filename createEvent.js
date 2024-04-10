@@ -1,3 +1,4 @@
+const eventData = {};
 
 function createTab(tabName) {
   const tab = document.createElement('button'); // Create button element
@@ -101,14 +102,25 @@ function createEventBox() {
   imageUploadButton.accept = "image/*"; // Specify accepted file types (images)
   imageUploadButton.id = 'image-upload'; // ID for label association
   imageUploadButton.classList.add('image-upload-button'); // Add class for styling
+  imageUploadButton.multiple = true; // Allow multiple files to be uploaded
 
   const publish = document.createElement('button');
   publish.textContent = 'Publish';
   publish.classList.add('publish'); // Add class for styling
 
   publish.addEventListener('click', function() {
+    eventData.eventName = eventName.value;
+    eventData.date = date.value;
+    eventData.time = time.value;
+    eventData.description = description.value;
+    eventData.collaborated = collaborated.value;
+    eventData.flyers = Array.from(imageUploadButton.files);
+
+    console.log(eventData);
+
     window.location.href = 'index.html';
   });
+
 
   // Append the event elements to the event management box
   event.appendChild(eventName);
