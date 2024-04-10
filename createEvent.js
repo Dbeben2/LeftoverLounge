@@ -90,16 +90,17 @@ function createEventBox() {
   collaborated.classList.add('collaborated'); // Add class for styling
 
 
-  const imageUploadButton = document.createElement('button');
-  imageUploadButton.textContent = 'Image Upload';
+  // Create label for the image upload button
+  const imageUploadLabel = document.createElement('label');
+  imageUploadLabel.textContent = 'Upload Flyer';
+  imageUploadLabel.htmlFor = 'image-upload'; // Matches the ID of the file input
+  imageUploadLabel.classList.add('image-upload-label'); // Add class for styling
+
+  const imageUploadButton = document.createElement('input');
+  imageUploadButton.type = "file"; // Change button to file input
+  imageUploadButton.accept = "image/*"; // Specify accepted file types (images)
+  imageUploadButton.id = 'image-upload'; // ID for label association
   imageUploadButton.classList.add('image-upload-button'); // Add class for styling
-
-  const imageUploadButtonIcon = document.createElement('img');
-  imageUploadButtonIcon.src = 'Images/file.png'; // Add the path to your image
-  imageUploadButtonIcon.alt = 'Image Upload Icon'; // Add alt text for accessibility
-  imageUploadButtonIcon.classList.add('image-upload-icon'); // Add class for styling
-
-  imageUploadButton.append(imageUploadButtonIcon);
 
   const publish = document.createElement('button');
   publish.textContent = 'Publish';
@@ -116,6 +117,7 @@ function createEventBox() {
   event.appendChild(description);
   event.appendChild(collaborated);
   event.appendChild(imageUploadButton);
+  event.appendChild(imageUploadLabel); // Add the label
   event.appendChild(publish);  
 
   // Append the heading and events to the event management box
