@@ -10,7 +10,7 @@ function createTabs() {
     const tabs = document.createElement('div');
     tabs.classList.add('tabs');
   
-    const tabNames = ['Menu', 'Create Events', 'Analytics'];
+    const tabNames = ['Create Events'];
     tabNames.forEach(tabName => {
       const tab = createTab(tabName);
       tabs.appendChild(tab);
