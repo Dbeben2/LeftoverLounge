@@ -1,7 +1,7 @@
 const updateState = {
-  update1: false, // Initially not chosen
-  update2: false, // Initially not chosen
-  time: '' // Initially empty
+  update1: false,
+  update2: false, 
+  time: ''
 };
 
 function createTab(tabName) {
