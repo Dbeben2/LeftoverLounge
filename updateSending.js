@@ -1,3 +1,8 @@
+const updateState = {
+  update1: false, // Initially not chosen
+  update2: false, // Initially not chosen
+  time: '' // Initially empty
+};
 
 function createTab(tabName) {
     const tab = document.createElement('button'); // Create button element
@@ -80,6 +85,10 @@ function updateSendingBox() {
 
     const check1 = document.createElement('button');
     check1.classList.add('check1');
+    check1.addEventListener('click', function() {
+      updateState.update1 = !updateState.update1;
+      check1.classList.toggle('selected', updateState.update1);
+    });
 
     const updatetext1 = document.createElement('p');
     updatetext1.textContent = 'Update students event is starting in ';
@@ -88,6 +97,9 @@ function updateSendingBox() {
     var time = document.createElement('input');
     time.type = "text";
     time.classList.add('time'); // Add class for styling
+    time.addEventListener('change', function(event) {
+      updateState.time = event.target.value;
+    });
   
     box1.appendChild(check1);
     box1.appendChild(updatetext1);
@@ -98,6 +110,10 @@ function updateSendingBox() {
 
     const check2 = document.createElement('button');
     check2.classList.add('check2');
+    check2.addEventListener('click', function() {
+      updateState.update2 = !updateState.update2;
+      check2.classList.toggle('selected', updateState.update2);
+    });
 
     const updatetext2 = document.createElement('p');
     updatetext2.textContent = 'Update students fresh food is left, they can come and pick up.';

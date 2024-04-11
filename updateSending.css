@@ -140,3 +140,8 @@ body {
     background-color: #82E36A;
     font-size: 30px;
 }
+
+.selected {
+    background-color: green;
+    color: white; /* Text color */
+}
