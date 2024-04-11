@@ -10,7 +10,7 @@ function createTabs() {
   const tabs = document.createElement('div');
   tabs.classList.add('tabs');
 
-  const tabNames = ['Events Near Me', 'Calendar', 'Clubs at UIC', 'Your Points'];
+  const tabNames = ['Clubs at UIC', 'Your Points'];
   tabNames.forEach(tabName => {
     const tab = createTab(tabName);
     tabs.appendChild(tab);

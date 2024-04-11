@@ -7,23 +7,26 @@ function createTab(tabName) {
 }
 
 function createTabs() {
-  const tabs = document.createElement('div');
-  tabs.classList.add('tabs');
+  const tabsContainer = document.createElement('div');
+  tabsContainer.classList.add('tabs');
 
-  const tabNames = ['Menu', 'Create Events', 'Analytics'];
+  const tabNames = ['Create Events'];
   tabNames.forEach(tabName => {
-    const tab = createTab(tabName);
-    tabs.appendChild(tab);
-    if (tabName === 'Create Events') {
-      tab.addEventListener('click', function() {
-        // Redirect to the Create Event page
-        window.location.href = 'CE.html';
-      });
+    if (tabName !== 'Menu' && tabName !== 'Analytics') {
+      const tab = createTab(tabName);
+      tabsContainer.appendChild(tab);
+      if (tabName === 'Create Events') {
+        tab.addEventListener('click', function() {
+          // Redirect to the Create Event page
+          window.location.href = 'CE.html';
+        });
+      }
     }
   });
 
-  return tabs;
+  return tabsContainer;
 }
+
 
 
 function createNotifications() {
