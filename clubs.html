@@ -5,13 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Event</title>
   <link rel="stylesheet" href="clubs.css">
+  <!-- Load PapaParse before your custom scripts to ensure it's available when needed -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <script src="clubs.js" defer></script> <!-- Use defer to ensure HTML is parsed before executing the script -->
 </head>
 <body>
   <div id="edit-event"></div>
-  <script src="clubs.js"></script>
+  
+  <div id="filter-interface">
+      <input type="text" id="searchName" placeholder="Search by name...">
+      <select id="filterType">
+          <option value="">All Types</option>
+      </select>
+      <!-- Additional select elements for other facets here -->
+  </div>
+
+  <div id="resultsTableContainer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <script src="clubs.js" defer></script>
   <script>
-    const findClub = createFindClub();
-    document.getElementById('edit-event').appendChild(findClub);
+      document.addEventListener('DOMContentLoaded', function() {
+          const findClub = createFindClub();
+          document.getElementById('edit-event').appendChild(findClub);
+
+          // This will trigger when user interacts with the input or select
+          document.getElementById('searchName').addEventListener('input', function() {
+              applyFilters(); // Make sure this function is defined and correctly handles filtering
+          });
+          document.getElementById('filterType').addEventListener('change', function() {
+              applyFilters();
+          });
+      });
+
+      async function applyFilters() {
+          const data = await loadAndParseCSV(); // Parse data
+          const filteredData = filterData(data); // Filter data based on inputs
+          displayData(filteredData); // Display filtered data
+      }
   </script>
 </body>
 </html>
