@@ -1,21 +1,3 @@
-// Firebase App (the core Firebase SDK) is always required and must be listed first
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBaabbq4ffoxWd8NGW6JQ8MUxd1cLRWyIA",
-    authDomain: "leftoverlounge.firebaseapp.com",
-    databaseURL: "https://leftoverlounge-default-rtdb.firebaseio.com",
-    projectId: "leftoverlounge",
-    storageBucket: "leftoverlounge.appspot.com",
-    messagingSenderId: "9645054242",
-    appId: "1:9645054242:web:c0bc8499ec54c6f1086d7b"
-  };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
 const eventData = {};
 
 function createTab(tabName) {
