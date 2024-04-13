@@ -1,79 +1,122 @@
 body {
-  font-family: "DM Sans", sans-serif; /* Consistent font for the document */
+  font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
   background-color: #E9F6FE;
+}
+
+h2{
+  font-family: "DM Sans", sans-serif; /* Change font for headings */
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* This will space out the logo, tabs, and notifications */
   padding: 20px;
   background-color: #f0f0f0;
 }
 
-.logo, .notify, .userProfile {
-  cursor: pointer; /* Makes it clear they are clickable */
-  height: 40px; /* Consistent height for header icons */
+.logo {
+  height: 60px;
+  margin-right: 25px;
 }
 
-.tabs, .notifications {
+.tabs {
   display: flex;
-  align-items: center; /* Vertically align items in the notification area */
 }
 
 .tab {
-  padding: 10px 15px; /* Slightly more padding for better touch targets */
-  margin-right: 10px; /* Reduced margin for a tighter layout */
-  background-color: transparent; /* Use 'background-color' for clarity over 'background' */
+  padding: 10px;
+  margin-right: 20px;
+  background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  text-decoration: underline;
+  font-size: 16px; /* Increase font size */
 }
 
 .tab:hover {
-  background-color: #f5a7a7;
+  background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
+
+.notifications {
+  display: flex;
+  align-items: center;
+}
+
+.notify {
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  padding-right: 20px;
+  position: absolute;
+  top: 50px; /* Adjust the distance from the top as needed */
+  right: 150px; /* Adjust the distance from the right as needed */
+}
+
+.userProfile{
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute;
+  top: 50px; /* Adjust the distance from the top as needed */
+  right: 100px; /* Adjust the distance from the right as needed */
 }
 
 .main-content {
-  padding: 20px; /* Added padding for spacing inside main content */
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center content horizontally */
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Responsive input and textarea styles */
-.input-text {
-  width: 80%; /* Responsive width */
-  max-width: 600px; /* Maximum width */
-  height: 40px;
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-
-.description {
-  width: 80%; /* Responsive width */
-  max-width: 600px; /* Maximum width */
-  height: 150px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  padding: 10px; /* Padding for text inside textarea */
-}
-
-.publish {
-  width: 50%; /* Responsive button width */
-  max-width: 300px; /* Maximum width */
-  height: 40px;
+.search-container {
   margin-top: 20px;
-  background-color: #82E36A;
-  font-size: 18px; /* Slightly smaller font size for better fitting */
-  cursor: pointer; /* Indicates the button is clickable */
+  display: flex;
+  align-items: center;
 }
 
-@media (max-width: 768px) {
-  .tab, .input-text, .description, .publish {
-    width: 90%; /* More width for smaller screens */
-    margin-right: 5%; /* Ensure some spacing on the right */
-    margin-left: 5%; /* Ensure some spacing on the left */
-  }
+.search-input {
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  height: 38px;
+  margin-right: 50px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.club-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px; /* Set maximum height for scrollable box */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.club-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.club-list li:last-child {
+  border-bottom: none;
+}
+
+.club-list-container {
+  margin-top: 20px; /* Add some space between search input/button and club list */
+  padding: 10px; /* Add padding inside the container */
+  border: 1px solid #000000; /* Add a border around the container */
+  border-radius: 5px; /* Add rounded corners to the border */
+}
+.footer {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  margin-top: 100px;
 }
