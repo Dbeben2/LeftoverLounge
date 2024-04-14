@@ -60,7 +60,7 @@ async function createLocationDropdown() {
 }
 
 async function fetchClubsCSV() {
-    const response = await fetch('clubInfo.csv');
+    const response = await fetch('clubinfo.csv');
     const data = await response.text();
     return data;
 }
@@ -264,6 +264,19 @@ async function createEventBox() {
     description.classList.add('description');
     const collaborated = await populateClubDropdown();
 
+    // RSVP Form creation and URL input
+    const rsvpFormLink = document.createElement('a');
+    rsvpFormLink.href = "https://forms.google.com";
+    rsvpFormLink.target = "_blank";
+    rsvpFormLink.textContent = "Create Google Form";
+    rsvpFormLink.classList.add('button');
+
+    const rsvpFormInput = document.createElement('input');
+    rsvpFormInput.id = 'rsvpFormInput';
+    rsvpFormInput.type = "url";
+    rsvpFormInput.placeholder = "Paste your Google Form URL here";
+    rsvpFormInput.classList.add('rsvp-url-input');
+
     const imageUploadLabel = document.createElement('label');
     imageUploadLabel.textContent = 'Upload Flyer';
     imageUploadLabel.htmlFor = 'image-upload';
@@ -277,26 +290,34 @@ async function createEventBox() {
     imageUploadButton.multiple = true;
 
     const publish = document.createElement('button');
-    publish.textContent = 'Next'; 
+    publish.textContent = 'Publish';
     publish.classList.add('publish');
     publish.addEventListener('click', async () => {
         const selectedRestrictions = document.querySelectorAll('.food-restrictions input[type="checkbox"]:checked');
         const restrictions = Array.from(selectedRestrictions).map(input => input.value);
+        const rsvpUrl = rsvpFormInput.value;
 
         const eventData = {
             eventName: eventName.value,
             date: date.value,
             time: time.value,
             description: description.value,
-            clubName: collaborated.value, 
-            location: location.value, 
-            foodRestrictions: restrictions 
+            clubName: collaborated.value,
+            location: location.value,
+            foodRestrictions: restrictions,
+            rsvpUrl: rsvpUrl  // Storing the RSVP URL
         };
 
-        const newEventRef = ref(database, 'events/' + Date.now());
+        const timestamp = Date.now();  // Get a timestamp to use as an event ID
+        const newEventRef = ref(database, 'events/' + timestamp);
+
         set(newEventRef, eventData).then(() => {
             console.log('Event created successfully!');
-            window.location.href = 'createRSVP.html'; 
+            // Redirect to the event details page with the event ID in the query string
+            //window.location.href = `eventDetails.html?eventId=${timestamp}`;
+
+            window.location.href = `index.html?`;
+
         }).catch(error => {
             console.error('Error creating event:', error);
         });
@@ -309,6 +330,8 @@ async function createEventBox() {
     event.appendChild(food);
     event.appendChild(description);
     event.appendChild(collaborated);
+    event.appendChild(rsvpFormLink);
+    event.appendChild(rsvpFormInput);
     event.appendChild(imageUploadButton);
     event.appendChild(imageUploadLabel);
     event.appendChild(publish);

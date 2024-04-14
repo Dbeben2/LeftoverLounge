@@ -175,3 +175,18 @@ h2{
   background-color: #82E36A;
   font-size: 20px;
 }
+
+
+.rsvpFormLink{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.rsvpFormInput{
+  width: 1500px;
+  height: 40px;
+  display: block;
+  margin-bottom: 20px;
+}
