@@ -60,7 +60,7 @@ async function createLocationDropdown() {
 }
 
 async function fetchClubsCSV() {
-    const response = await fetch('clubInfo.csv');
+    const response = await fetch('clubinfo.csv');
     const data = await response.text();
     return data;
 }
