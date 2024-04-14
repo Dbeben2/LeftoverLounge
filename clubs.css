@@ -120,3 +120,13 @@ h2{
   align-items: center; /* Center the content vertically */
   margin-top: 100px;
 }
+
+.user-profile-text{
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  padding-right: 20px;
+  position: absolute;
+  top: 60px; /* Adjust the distance from the top as needed */
+  right: 20px; /* Adjust the distance from the right as needed */
+
+}
