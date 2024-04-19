@@ -1,157 +1,148 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { getDatabase, ref, query, orderByChild, equalTo, onValue } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
 
-function createTab(tabName) {
-  const tab = document.createElement('button'); // Create button element
-  tab.classList.add('tab');
-  tab.textContent = tabName;
-  return tab;
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBaabbq4ffoxWd8NGW6JQ8MUxd1cLRWyIA",
+    authDomain: "leftoverlounge.firebaseapp.com",
+    databaseURL: "https://leftoverlounge-default-rtdb.firebaseio.com",
+    projectId: "leftoverlounge",
+    storageBucket: "leftoverlounge.appspot.com",
+    messagingSenderId: "9645054242",
+    appId: "1:9645054242:web:c0bc8499ec54c6f1086d7b"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+document.addEventListener('DOMContentLoaded', () => {
+    createNavigationBar();
+    createSearchAndEventDetailsContainer();
+});
+
+function createNavigationBar() {
+    const header = document.createElement('header');
+    header.className = 'header';
+
+    const logo = document.createElement('img');
+    logo.src = 'images/LeftoverLoungeLogo.png';
+    logo.alt = 'Logo';
+    logo.className = 'logo';
+    logo.onclick = () => window.location.href = 'clubMember.html';
+
+    const tabs = createTabs();
+    const notifications = createNotifications();
+
+    header.appendChild(logo);
+    header.appendChild(tabs);
+    header.appendChild(notifications);
+
+    document.body.insertBefore(header, document.body.firstChild);
 }
 
 function createTabs() {
-  const tabs = document.createElement('div');
-  tabs.classList.add('tabs');
+    const tabs = document.createElement('div');
+    tabs.className = 'tabs';
+    const tabNames = ['Clubs at UIC', 'Your Points'];
 
-  const tabNames = ['Clubs at UIC', 'Your Points'];
-  tabNames.forEach(tabName => {
-    const tab = createTab(tabName);
-    tabs.appendChild(tab);
-    if (tabName === 'Create Events') {
-      tab.addEventListener('click', function() {
-        // Redirect to the Create Event page
-        window.location.href = 'CE.html';
-      });
-    }
-  });
+    tabNames.forEach(name => {
+        const tab = document.createElement('button');
+        tab.textContent = name;
+        tab.className = 'tab';
+        tabs.appendChild(tab);
+    });
 
-  return tabs;
+    return tabs;
 }
-
 
 function createNotifications() {
-  const notifications = document.createElement('div');
-  notifications.classList.add('notifications');
+    const notifications = document.createElement('div');
+    notifications.className = 'notifications';
 
-  const notify = document.createElement('img');
-  notify.src = 'images/notify.png';
-  notify.alt = 'Notifications';
-  notify.classList.add('notify'); // Add a class to the image for styling
+    const notifyIcon = document.createElement('img');
+    notifyIcon.src = 'images/notify.png';
+    notifyIcon.alt = 'Notifications';
+    notifyIcon.className = 'notify';
 
-  const userProfile = document.createElement('img');
-  userProfile.src = 'images/agent1.png';
-  userProfile.alt = 'Club Logo'
-  userProfile.classList.add('userProfile'); // Add a class to the image for styling
+    const userProfile = document.createElement('img');
+    userProfile.src = 'images/agent1.png';
+    userProfile.alt = 'User Profile';
+    userProfile.className = 'userProfile';
 
-  notifications.appendChild(notify);
-  notifications.appendChild(userProfile);
-  
+    notifications.appendChild(notifyIcon);
+    notifications.appendChild(userProfile);
 
-  return notifications;
+    return notifications;
 }
 
+function createSearchAndEventDetailsContainer() {
+    const mainContent = document.createElement('div');
+    mainContent.className = 'main-content';
+    document.body.appendChild(mainContent);
 
-function createEventBox(eventName, eventDate, eventTime, eventLocation, eventFood, eventDescription) {
-  // Create the event management box container
-  const eventBoxContainer = document.createElement('div');
-  eventBoxContainer.classList.add('event-box-container');
+    const eventDetailsContainer = document.createElement('div');
+    eventDetailsContainer.id = 'event-details-container';
+    mainContent.appendChild(eventDetailsContainer);
 
-  // Create the event management box
-  const eventBox = document.createElement('div');
-  eventBox.classList.add('event-box');
+    const searchContainer = document.createElement('div');
+    searchContainer.className = 'search-container';
+    eventDetailsContainer.appendChild(searchContainer);
 
-  // Create the heading for the event management box
-  const heading = document.createElement('h2');
-  heading.textContent = 'Event Details'
-  heading.classList.add('event-heading'); // Add class for styling
+    const inputClub = document.createElement('input');
+    inputClub.type = 'text';
+    inputClub.id = 'search-club';
+    inputClub.placeholder = 'Enter club name...';
+    searchContainer.appendChild(inputClub);
 
-  const event = document.createElement('div');
-  event.classList.add('event'); // Add class for styling
+    const inputDate = document.createElement('input');
+    inputDate.type = 'date';
+    inputDate.id = 'search-date';
+    searchContainer.appendChild(inputDate);
 
-  const location = document.createElement('span');
-  location.textContent = 'Location:';
-  location.classList.add('Location'); // Add a class for styling
+    const searchButton = document.createElement('button');
+    searchButton.textContent = 'Search';
+    searchButton.id = 'search-button';
+    searchButton.onclick = searchEvents;
+    searchContainer.appendChild(searchButton);
 
-  const date = document.createElement('span');
-  date.textContent = 'Date:';
-  date.classList.add('date'); // Add a class for styling
-
-  const time = document.createElement('span');
-  time.textContent = 'Time:';
-  time.classList.add('time'); // Add a class for styling
-
-  const food = document.createElement('span');
-  food.textContent = 'Food:';
-  food.classList.add('food'); // Add a class for styling
-
-  const description = document.createElement('span');
-  description.textContent = 'Description:';
-  description.classList.add('description'); // Add a class for styling
-
-  const publish = document.createElement('button');
-  publish.textContent = 'Publish';
-  publish.classList.add('publish'); // Add class for styling
-
-  publish.addEventListener('click', function() {
-    window.location.href = 'clubMember.html';
-  });
-
-  // Append the event elements to the event management box
-  event.appendChild(location);
-  event.appendChild(date);
-  event.appendChild(time);
-  event.appendChild(food);
-  event.appendChild(description);
-  event.appendChild(publish);  
-
-  // Append the heading and events to the event management box
-  eventBox.appendChild(heading);
-  eventBox.appendChild(event);
-
-  // Append the event management box to the container
-  eventBoxContainer.appendChild(eventBox);
-
-  // Return the container
-  return eventBoxContainer;
+    const eventDetails = document.createElement('div');
+    eventDetails.id = 'event-details';
+    eventDetailsContainer.appendChild(eventDetails);
 }
 
+function searchEvents() {
+    const clubName = document.getElementById('search-club').value.trim();
+    const eventDate = document.getElementById('search-date').value;
+    const eventsRef = query(ref(database, 'events'), orderByChild('clubName'), equalTo(clubName));
 
-function createEventDescriptionPage() {
-  const createEvent = document.createElement('div');
-  createEvent.classList.add('create-Event');
-
-  const header = document.createElement('header');
-  header.classList.add('header');
-
-  const logo = document.createElement('img');
-  logo.classList.add('logo');
-  logo.src = 'images/LeftoverLoungeLogo.png'; 
-  logo.alt = 'Logo'; // Add an alt attribute for accessibility
-
-   // Add an event listener to the logo
-  logo.addEventListener('click', function() {
-    window.location.href = 'clubMember.html'; // Event listener to take you back to the homepage
-  });
-
-  const tabs = createTabs();
-  const notifications = createNotifications();
-  const userProfileText = document.createElement('span');
-  userProfileText.textContent = 'Justin';
-  userProfileText.classList.add('user-profile-text'); // Add a class for styling
-
-  header.appendChild(logo);
-  header.appendChild(tabs);
-  header.appendChild(notifications);
-  header.appendChild(userProfileText);
-
-  const mainContent = document.createElement('main');
-  mainContent.classList.add('main-content');
-
-  const eventBox = createEventBox();
-
-  mainContent.appendChild(eventBox);
-
-  createEvent.appendChild(header);
-  createEvent.appendChild(mainContent);
-
-  return createEvent;
+    onValue(eventsRef, snapshot => {
+        let found = false;
+        snapshot.forEach(childSnapshot => {
+            const event = childSnapshot.val();
+            if (event.date === eventDate) {
+                displayEventDetails(event);
+                found = true;
+            }
+        });
+        if (!found) {
+            document.getElementById('event-details').innerHTML = "No event found for the selected club and date.";
+        }
+    }, {
+        onlyOnce: true
+    });
 }
 
-module.exports = createEventDescriptionPage;
+function displayEventDetails(event) {
+    const detailsContainer = document.getElementById('event-details');
+    const detailsHtml = `
+        <h2>Event Details</h2>
+        <p>Name: ${event.eventName}</p>
+        <p>Date: ${event.date}</p>
+        <p>Time: ${event.time}</p>
+        <p>Location: ${event.location}</p>
+        <p>Food: ${event.foodRestrictions || 'None'}</p>
+        <p>Description: ${event.description}</p>
+    `;
+    detailsContainer.innerHTML = detailsHtml;
+}
