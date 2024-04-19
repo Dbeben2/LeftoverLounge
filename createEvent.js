@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "your-api-key",
+  apiKey: "AIzaSyBaabbq4ffoxWd8NGW6JQ8MUxd1cLRWyIA",
   authDomain: "leftoverlounge.firebaseapp.com",
   databaseURL: "https://leftoverlounge-default-rtdb.firebaseio.com",
   projectId: "leftoverlounge",
