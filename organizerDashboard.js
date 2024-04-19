@@ -6,30 +6,7 @@ function createTab(tabName) {
   return tab;
 }
 
-function createTabs() {
-  const tabs = document.createElement('div');
-  tabs.classList.add('tabs');
 
-  const tabNames = ['Create Events', 'Add Points']; // Add 'Add Points' tab
-  tabNames.forEach(tabName => {
-    const tab = createTab(tabName);
-    tabs.appendChild(tab);
-    if (tabName === 'Create Events') {
-      tab.addEventListener('click', function() {
-        // Redirect to the Create Event page
-        window.location.href = 'CE.html';
-      });
-    }
-    if (tabName === 'Add Points') {
-      tab.addEventListener('click', function() {
-        // Redirect to the Add Points page
-        window.location.href = 'AP.html';
-      });
-    }
-  });
-
-  return tabs;
-}
 
 function createNotifications() {
   const notifications = document.createElement('div');
@@ -350,6 +327,31 @@ function createOrganizerDashboard() {
   logo.addEventListener('click', function() {
     window.location.href = 'index.html'; // Event listener to take you back to the homepage
   });
+
+  function createTabs() {
+    let tabs = document.createElement('div');
+    tabs.classList.add('tabs');
+  
+    let tabNames = ['Create Events', 'Add Points']; // Add 'Add Points' tab
+    tabNames.forEach(tabName => {
+      const tab = createTab(tabName);
+      tabs.appendChild(tab);
+      if (tabName === 'Create Events') {
+        tab.addEventListener('click', function() {
+          // Redirect to the Create Event page
+          window.location.href = 'CE.html';
+        });
+      }
+      if (tabName === 'Add Points') {
+        tab.addEventListener('click', function() {
+          // Redirect to the Add Points page
+          window.location.href = 'AP.html';
+        });
+      }
+    });
+  
+    return tabs;
+  }
 
   const tabs = createTabs();
   const notifications = createNotifications();

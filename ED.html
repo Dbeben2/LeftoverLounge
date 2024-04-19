@@ -4,24 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Description</title>
-  
   <link rel="stylesheet" href="eventDescription.css">
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 </head>
 <body>
-  <div id="eventDescription"></div>
-  
-  <script type="module" src="eventDescription.js"></script>
-  
-  <script type="module">
-    import createEventDescriptionPage from './eventDescription.js';
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const eventDescriptionContainer = document.getElementById('eventDescription');
-      const eventDescription = createEventDescriptionPage();
-      eventDescriptionContainer.appendChild(eventDescription);
-    });
+  <div id="event-details"></div>
+  <div id="container"></div> <!-- Add a container for the pie chart -->
+  <script src="eventDescription.js"></script>
+  <script>
+    const eventDescription = createEventDescriptionPage();
+    document.getElementById('event-details').appendChild(eventDescription);
   </script>
 </body>
 </html>
