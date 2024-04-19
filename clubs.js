@@ -131,14 +131,14 @@ function createFindClub() {
   searchButton.addEventListener('click', performSearch);
 
 
-  const dropdown = document.createElement('select');
+const dropdown = document.createElement('select');
 dropdown.classList.add('facet-dropdown');
 
 // Append dropdown to search container
 searchContainer.appendChild(dropdown);
 
 // Array to store unique facets
-const uniqueFacets = [];
+const uniqueFacets = new Set();
 
 // Function to populate dropdown with unique facets
 function populateDropdown() {
@@ -149,6 +149,9 @@ function populateDropdown() {
   });
 }
 
+// Define clubData as a Map to store facets associated with each club
+const clubData = new Map();
+
 // Read club names from CSV file
 function readCSV(file) {
   const reader = new FileReader();
@@ -158,16 +161,16 @@ function readCSV(file) {
     for (let i = 1; i < lines.length; i++) { // Skip the first line
       const line = lines[i];
       const columns = line.split(',');
-      for (let j = 4; j < columns.length; j++) { // Start from the fifth column (facet columns)
-        const facet = columns[j].trim();
-        if (!uniqueFacets.includes(facet)) { // Check if facet already exists in the array
-          uniqueFacets.push(facet); // Add facet to array
-        }
-      }
+      const facets = columns.slice(4).map(facet => facet.trim()); // Extract facets from columns
+      facets.forEach(facet => uniqueFacets.add(facet)); // Add facets to uniqueFacets set
       const clubName = columns[0].replace(/"/g, '').trim(); // Strip double quotes and get the first column (club name)
       searchedClubs.add(clubName); // Add club name to searchedClubs set
+      clubData.set(clubName, facets); // Store club name and facets in clubData map
     }
     populateDropdown(); // Populate dropdown with unique facets
+
+    console.log("List of Facets:");
+    uniqueFacets.forEach(facet => console.log(facet));
   };
   reader.readAsText(file);
 }
@@ -182,13 +185,17 @@ searchContainer.appendChild(applyFilterButton);
 
 // Add event listener for apply filter button click event
 applyFilterButton.addEventListener('click', () => {
+  console.log("Facet Search Button Clicked");
   performSearchWithFacet();
 });
 
-// Function to perform search with selected facet
 function performSearchWithFacet() {
   const query = searchInput.value.toLowerCase();
-  const facet = dropdown.value.toLowerCase();
+  const facet = dropdown.value; // Remove .toLowerCase() here
+  
+  // Log the values of query and facet
+  console.log('Query:', query);
+  console.log('Facet:', facet);
   
   // Array to store clubs matching the selected facet
   const matchingClubs = [];
@@ -202,6 +209,9 @@ function performSearchWithFacet() {
       matchingClubs.push(club);
     }
   }
+  
+  // Log the matching clubs array
+  console.log('Matching Clubs:', matchingClubs);
   
   // Display filtered clubs
   displayClubs(matchingClubs, clubList);
