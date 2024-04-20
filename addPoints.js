@@ -92,39 +92,41 @@ function updateSendingBox() {
     sendUpdate.textContent = 'Send Update';
     sendUpdate.classList.add('send-update');
     sendUpdate.addEventListener('click', function() {
-        const userId = dropdown.value;
-        const addedPoints = parseInt(pointsInput.value, 10) || 0;
-        const addedBonusPoints = parseInt(bonusPointsInput.value, 10) || 0;
-
-        const userRef = ref(database, 'Student/' + userId);
-        get(userRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                const userData = snapshot.val();
-                const currentPoints = userData.Points || 0;
-                const currentBonusPoints = userData.BonusPoints || 0;
-
-                const newPointsTotal = currentPoints + addedPoints;
-                const newBonusPointsTotal = currentBonusPoints + addedBonusPoints;
-
-                update(userRef, {
-                    Points: newPointsTotal,
-                    BonusPoints: newBonusPointsTotal
-                }).then(() => {
-                    console.log('Points and bonus points updated successfully');
-                    alert("Updated points to " + newPointsTotal + " and bonus points to " + newBonusPointsTotal);
-                }).catch((error) => {
-                    console.error('Error updating points:', error);
-                    alert("Failed to update points: " + error.message);
-                });
-            } else {
-                console.log('No user data available for:', userId);
-                alert('No data available for selected user.');
-            }
-        }).catch((error) => {
-            console.error('Failed to fetch user data:', error);
-            alert("Failed to fetch user data: " + error.message);
-        });
-    });
+      const userId = dropdown.value;
+      const addedPoints = parseInt(pointsInput.value, 10) || 0;
+      const addedBonusPoints = parseInt(bonusPointsInput.value, 10) || 0;
+  
+      const userRef = ref(database, 'Student/' + userId);
+      get(userRef).then((snapshot) => {
+          if (snapshot.exists()) {
+              const userData = snapshot.val();
+              const currentPoints = userData.Points || 0;
+              const currentBonusPoints = userData.BonusPoints || 0;
+  
+              const newPointsTotal = currentPoints + addedPoints;
+              const newBonusPointsTotal = currentBonusPoints + addedBonusPoints;
+  
+              update(userRef, {
+                  Points: newPointsTotal,
+                  BonusPoints: newBonusPointsTotal
+              }).then(() => {
+                  console.log('Points and bonus points updated successfully');
+                  alert("Updated points to " + newPointsTotal + " and bonus points to " + newBonusPointsTotal);
+                  // Redirect to index.html after updating
+                  window.location.href = 'index.html';
+              }).catch((error) => {
+                  console.error('Error updating points:', error);
+                  alert("Failed to update points: " + error.message);
+              });
+          } else {
+              console.log('No user data available for:', userId);
+              alert('No data available for selected user.');
+          }
+      }).catch((error) => {
+          console.error('Failed to fetch user data:', error);
+          alert("Failed to fetch user data: " + error.message);
+      });
+  });
 
     const box1 = document.createElement('div');
     box1.classList.add('box1');
