@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
+import {  getDatabase, ref, get, query, orderByChild, set } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBaabbq4ffoxWd8NGW6JQ8MUxd1cLRWyIA",
@@ -81,19 +81,54 @@ function createHeader() {
   return header;
 }
 
-export function createPointDetailsPage() {
+async function updateAllStudentRanks() {
+    const studentRef = ref(database, 'Student');
+    const snapshot = await get(query(studentRef, orderByChild('Points')));
+    if (snapshot.exists()) {
+        const students = [];
+        snapshot.forEach(child => {
+            const student = child.val();
+            student.id = child.key;
+            students.push(student);
+        });
+        // Sort students by total points
+        students.sort((a, b) => (b.Points + b.BonusPoints) - (a.Points + a.BonusPoints));
+        // Update rank
+        students.forEach((student, index) => {
+            const newRank = index + 1;  // Rank is index + 1 because array is zero-indexed
+            set(ref(database, `Student/${student.id}/Rank`), newRank);
+        });
+    }
+}
+
+
+function createPointDetailsPage() {
     const container = document.createElement('div');
     container.className = 'container';
+
+    // Create input and button for getting user details
     const input = document.createElement('input');
     input.type = 'text';
     input.placeholder = 'Enter User ID';
     const button = document.createElement('button');
     button.textContent = 'Get Details';
+
+    // Create container for user details
     const userInfo = document.createElement('div');
     userInfo.id = 'userInfo';
 
-    button.addEventListener('click', () => {
+    // Create container for badge progress
+    const badgeProgress = document.createElement('div');
+    badgeProgress.id = 'badgeProgress';
+
+    // Create container for earned badges
+    const earnedBadges = document.createElement('div');
+    earnedBadges.id = 'earnedBadges';
+
+    // Event listener for button click to fetch user details
+    button.addEventListener('click', async () => {
         const userId = input.value.trim();
+        await updateAllStudentRanks();  // Update ranks before fetching user info
         const userRef = ref(database, 'Student/' + userId);
 
         get(userRef).then((snapshot) => {
@@ -105,6 +140,26 @@ export function createPointDetailsPage() {
                                       <p><strong>Rank:</strong> ${data.Rank}</p>
                                       <p><strong>Bonus Points:</strong> ${data.BonusPoints}</p>
                                       <p><strong>Last Week's Points:</strong> ${data.Last}</p>`;
+
+                // Calculate badge progress
+                const points = data.Points + data.BonusPoints;
+                const badges = ['Cooper', 'Brass', 'Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Diamond Elite'];
+                let progressHTML = '<h2>Badge Progress</h2>';
+                for (let i = 0; i < badges.length; i++) {
+                    const thresholdPoints = [500, 1000, 1500, 2500, 3500, 5000, 7000, 10000]; // Threshold points for each badge
+                    const progress = Math.min((points / thresholdPoints[i]) * 100, 100); // Calculate progress percentage
+                    const pointsNeeded = thresholdPoints[i] - points; // Calculate points needed for next badge
+                    if (pointsNeeded > 0) {
+                        progressHTML += `<p><strong>${badges[i]}:</strong> ${progress.toFixed(2)}% (${pointsNeeded} points needed)</p>`;
+                    } else {
+                        progressHTML += `<p><strong>${badges[i]}:</strong> ${progress.toFixed(2)}%</p>`;
+                    }
+                }
+                badgeProgress.innerHTML = progressHTML;
+
+                // Display earned badges
+                const earnedBadgesHTML = generateEarnedBadgesHTML(data);
+                earnedBadges.innerHTML = earnedBadgesHTML;
             } else {
                 userInfo.innerHTML = `<p>No user data available for ID: ${userId}</p>`;
             }
@@ -114,10 +169,32 @@ export function createPointDetailsPage() {
         });
     });
 
+    // Append input, button, user details, badge progress, and earned badges containers to the main container
     container.appendChild(input);
     container.appendChild(button);
     container.appendChild(userInfo);
+    container.appendChild(badgeProgress);
+    container.appendChild(earnedBadges);
+
     return container;
+}
+
+
+function generateEarnedBadgesHTML(data) {
+    // Logic to generate HTML for earned badges based on data
+    // For example:
+    const earnedBadges = data.Badges; // Assuming 'Badges' is an array of earned badge names
+    let earnedBadgesHTML = '<h2>Earned Badges</h2>';
+    if (earnedBadges && earnedBadges.length > 0) {
+        earnedBadgesHTML += '<ul>';
+        earnedBadges.forEach(badge => {
+            earnedBadgesHTML += `<li>${badge}</li>`;
+        });
+        earnedBadgesHTML += '</ul>';
+    } else {
+        earnedBadgesHTML += '<p>No badges earned yet.</p>';
+    }
+    return earnedBadgesHTML;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
