@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Sending</title>
+  <link rel="stylesheet" href="addStudent.css">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+</head>
+<body>
+  <div id="update-Sending"></div>
+  <script type="module" src="addStudent.js"></script>
+  <script type="module">
+    import { createUpdateSending } from './addStudent.js';
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const updateSending = createUpdateSending();
+      document.getElementById('update-Sending').appendChild(updateSending);
+    });
+  </script>
+</body>
+</html>

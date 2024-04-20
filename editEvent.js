@@ -10,7 +10,7 @@ function createTab(tabName) {
     const tabs = document.createElement('div');
     tabs.classList.add('tabs');
   
-    const tabNames = ['Create Events'];
+    const tabNames = ['Create Events', 'Add Points', 'Add Student'];
     tabNames.forEach(tabName => {
       const tab = createTab(tabName);
       tabs.appendChild(tab);
@@ -20,10 +20,21 @@ function createTab(tabName) {
           window.location.href = 'CE.html';
         });
       }
+      if (tabName === 'Add Points') {
+        tab.addEventListener('click', function() {
+          // Redirect to the Create Event page
+          window.location.href = 'AP.html';
+        });
+      }
+      if (tabName === 'Add Students') {
+        tab.addEventListener('click', function() {
+          // Redirect to the Create Event page
+          window.location.href = 'addStudents.html';
+        });
+      }
     });
-  
     return tabs;
-  }
+}
   
   
   function createNotifications() {
