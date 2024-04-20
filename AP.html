@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Sending</title>
   <link rel="stylesheet" href="AP.css">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 </head>
 <body>
   <div id="update-Sending"></div>
-  <script src="addPoints.js"></script>
-  <script>
-    const updateSending = createUpdateSending();
-    document.getElementById('update-Sending').appendChild(updateSending);
+  <script type="module" src="addPoints.js"></script>
+  <script type="module">
+    import { createUpdateSending } from './addPoints.js';
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const updateSending = createUpdateSending();
+      document.getElementById('update-Sending').appendChild(updateSending);
+    });
   </script>
 </body>
 </html>
