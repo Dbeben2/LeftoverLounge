@@ -3,66 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clubMember</title>
-    <link rel="stylesheet" href="clubMember.css">
+    <title>Your Points</title>
+    <link rel="stylesheet" href="yourPoints.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 </head>
 <body>
-    <!-- Menu bar -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <a href="#home" class="logo">
-                <img src="Images/LeftoverLoungeLogo.png" alt="Website Logo" style="height: 60px;">
-            </a>
-            <a href="#clubs">Clubs At UIC</a>
-            <a href="#points" id="points">Your Points</a>
-        </div>
+    <div id="pointDetails"></div>
 
-           <!-- Right-aligned items -->
-        <div class="navbar-right">
-            <a href="#notifications">
-                <img src="Images/notify.png" alt="Notifications" style="height: 40px;"> 
-            </a>
-            <a href="#userprofile" id="userProfileLink">
-                <img src="Images/agent1.png" alt="User" style="height: 40px;"> <!--  image for user -->
-            </a>
-            <span class="username">Justin</span>
-        </div>
-    </div>
+    <script type="module" src="yourPoints.js"></script>
 
-    <body>
-        <div class="grid-container">
-            <div class="user-points">
-                <h2>Your Points</h2>
-                <p><strong>Points:</strong> <span id="userPoints">415</span></p>
-                <p><strong>Current Rank:</strong> <span id="currentRank">1284</span></p>
-                <p><strong>Bonus Points:</strong> <span id="bonusPoints">200</span></p>
-                <p><strong>Last Week's Points:</strong> <span id="lastWeekPoints">325</span></p>
-            </div>
-            
-            <div class="section4">
-                <h2>Badges Earned</h2>
-                <div class="badges-container">
-                    <!-- Example badges (replace with actual earned badges) -->
-                    <img src="Images/badge1.png" alt="Badge 1" style="height: 80px;">
-                    <img src="Images/badge2.png" alt="Badge 2" style="height: 80px;">
-                    <img src="Images/badge3.png" alt="Badge 3" style="height: 80px;">
-                    <!-- Add more badges as needed -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Redirect to index -->
-        <script>
-            // Get the user profile link element by its ID
-            const userProfileLink = document.getElementById('userProfileLink');
-    
-            // Add an event listener to the user profile link
-            userProfileLink.addEventListener('click', function() {
-                // Redirect to the index.html page
-                window.location.href = 'index.html';
-            });
-        </script>
-    <script src="clubMember.js"></script>
-    <script src="yourPoints.js"></script>
+    <!-- <script type="module">
+      import { createPointDetailsPage } from './yourPoints.js';
+    </script> -->
 </body>
 </html>
