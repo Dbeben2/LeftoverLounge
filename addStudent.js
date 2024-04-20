@@ -1,6 +1,6 @@
 // Import Firebase modules
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-import { getDatabase, ref, get, update } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
+import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -12,6 +12,7 @@ const firebaseConfig = {
     messagingSenderId: "9645054242",
     appId: "1:9645054242:web:c0bc8499ec54c6f1086d7b"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -51,88 +52,54 @@ function updateSendingBox() {
     eventBox.classList.add('event-box');
 
     const text1 = document.createElement('p');
-    text1.textContent = 'Add Points for users.';
+    text1.textContent = 'Enter A New User';
     text1.classList.add('text1');
     eventBox.appendChild(text1);
 
-    const dropdown = document.createElement('select');
-    dropdown.classList.add('dropdown');
-    const placeholderOption = document.createElement('option');
-    placeholderOption.textContent = 'Choose a user';
-    placeholderOption.disabled = true;
-    placeholderOption.selected = true;
-    dropdown.appendChild(placeholderOption);
+    const UINInput = document.createElement('input');
+    UINInput.type = 'text';
+    UINInput.placeholder = 'Enter UIN';
+    UINInput.classList.add('UIN');
 
-    // Fetch user names from Firebase database to populate dropdown
-    const usersRef = ref(database, 'Student');
-    get(usersRef).then((snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-            const userId = childSnapshot.key;
-            const userName = childSnapshot.child('Name').val();
-            const option = document.createElement('option');
-            option.textContent = userName;
-            option.value = userId;
-            dropdown.appendChild(option);
-        });
-    }).catch((error) => {
-        console.error("Error fetching user data:", error);
-    });
-
-    const pointsInput = document.createElement('input');
-    pointsInput.type = 'text';
-    pointsInput.placeholder = 'Enter points';
-    pointsInput.classList.add('points-input');
-
-    const bonusPointsInput = document.createElement('input');
-    bonusPointsInput.type = 'text';
-    bonusPointsInput.placeholder = 'Enter bonus points';
-    bonusPointsInput.classList.add('bonus-points-input');
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.placeholder = 'Enter Name';
+    nameInput.classList.add('name');
 
     const sendUpdate = document.createElement('button');
-    sendUpdate.textContent = 'Send Update';
+    sendUpdate.textContent = 'Add User';
     sendUpdate.classList.add('send-update');
     sendUpdate.addEventListener('click', function() {
-      const userId = dropdown.value;
-      const addedPoints = parseInt(pointsInput.value, 10) || 0;
-      const addedBonusPoints = parseInt(bonusPointsInput.value, 10) || 0;
-  
-      const userRef = ref(database, 'Student/' + userId);
-      get(userRef).then((snapshot) => {
-          if (snapshot.exists()) {
-              const userData = snapshot.val();
-              const currentPoints = userData.Points || 0;
-              const currentBonusPoints = userData.BonusPoints || 0;
-  
-              const newPointsTotal = currentPoints + addedPoints;
-              const newBonusPointsTotal = currentBonusPoints + addedBonusPoints;
-  
-              update(userRef, {
-                  Points: newPointsTotal,
-                  BonusPoints: newBonusPointsTotal
-              }).then(() => {
-                  console.log('Points and bonus points updated successfully');
-                  alert("Updated points to " + newPointsTotal + " and bonus points to " + newBonusPointsTotal);
-                  // Redirect to index.html after updating
-                  window.location.href = 'index.html';
-              }).catch((error) => {
-                  console.error('Error updating points:', error);
-                  alert("Failed to update points: " + error.message);
-              });
-          } else {
-              console.log('No user data available for:', userId);
-              alert('No data available for selected user.');
-          }
-      }).catch((error) => {
-          console.error('Failed to fetch user data:', error);
-          alert("Failed to fetch user data: " + error.message);
-      });
-  });
+        const name = nameInput.value.trim();
+        const UIN = UINInput.value.trim(); // Get the UIN entered by the user
+    
+        if (name !== '') {
+            // Push the new student data to the Firebase database under "Student" with default values
+            push(ref(database, 'Student'), {
+                Name: name,
+                UIN: UIN,
+                Points: 0,
+                Rank: 0,
+                Last: 0
+            }).then(() => {
+                console.log('New student added successfully');
+                alert("User added successfully!"); // Display popup message
+                // Redirect to index.html after adding the student
+                window.location.href = 'index.html';
+            }).catch((error) => {
+                console.error('Error adding new student:', error);
+                alert("Failed to add new student: " + error.message);
+            });
+        } else {
+            alert("Please enter a Name");
+        }
+    });
+    
 
     const box1 = document.createElement('div');
     box1.classList.add('box1');
-    box1.appendChild(dropdown);
-    box1.appendChild(pointsInput);
-    box1.appendChild(bonusPointsInput);
+    box1.appendChild(UINInput);
+    box1.appendChild(nameInput);
 
     eventBox.appendChild(box1);
     eventBox.appendChild(sendUpdate);
@@ -190,11 +157,6 @@ function createTabs() {
         if (tabName === 'Add Points') {
             tab.addEventListener('click', () => {
                 window.location.href = 'AP.html';
-            });
-        }
-        if (tabName === 'Add Student') {
-            tab.addEventListener('click', () => {
-                window.location.href = 'addStudent.html';
             });
         }
     });

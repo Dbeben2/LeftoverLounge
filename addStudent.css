@@ -1,0 +1,99 @@
+body {
+    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    background-color: #E9F6FE;
+}
+  
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+  
+.logo {
+    width: 100px;
+    height: auto;
+}
+  
+.tabs {
+    display: flex;
+}
+  
+.tab {
+    padding: 10px;
+    margin-right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 18px; /* Increase font size */
+}
+
+.tab:hover {
+    background-color: #f5a7a7; /* Change the text color to red when hovered over */
+}
+  
+.notifications {
+    display: flex;
+    align-items: center;
+}
+  
+.notify {
+    width: 30px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    padding-right: 20px;
+    position: fixed;
+    top: 50px; /* Adjust the distance from the top as needed */
+    right: 150px; /* Adjust the distance from the right as needed */
+}
+  
+.clubLogo{
+    width: 95px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: fixed;
+    top: 40px; /* Adjust the distance from the top as needed */
+    right: 50px; /* Adjust the distance from the right as needed */
+}
+  
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+  
+.content-container {
+    display: flex;
+}
+  
+
+.text1{
+    display: flex;
+    font-size: 30px;
+    align-items: center; /* Vertically center the content */
+    flex-direction: column; /* Align items vertically */
+}
+
+
+.send-update{
+    width: 200px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: #82E36A;
+    font-size: 25px;
+}
+
+.selected {
+    background-color: green;
+    color: white; /* Text color */
+}
+
+.UIN,
+.name {
+  margin: 0 10px; /* 10px margin on left and right */
+  font-size: 16px;
+  width: 250px;
+}
+

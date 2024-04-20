@@ -17,12 +17,8 @@ function createTabs() {
       tab.addEventListener('click', function() {
         // Redirect to the Create Event page
         window.location.href = 'CE.html';
-      });}
-      if (tabName === 'Your Points') {
-        tab.addEventListener('click', function() {
-          // Redirect to the Create Event page
-          window.location.href = 'yourPoints.html';
-        });}
+      });
+    }
   });
 
   return tabs;

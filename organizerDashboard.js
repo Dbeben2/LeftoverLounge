@@ -332,7 +332,7 @@ function createOrganizerDashboard() {
     let tabs = document.createElement('div');
     tabs.classList.add('tabs');
   
-    let tabNames = ['Create Events', 'Add Points']; // Add 'Add Points' tab
+    let tabNames = ['Create Events', 'Add Points', 'Add Student']; // Add 'Add Points' tab
     tabNames.forEach(tabName => {
       const tab = createTab(tabName);
       tabs.appendChild(tab);
@@ -346,6 +346,12 @@ function createOrganizerDashboard() {
         tab.addEventListener('click', function() {
           // Redirect to the Add Points page
           window.location.href = 'AP.html';
+        });
+      }
+      if (tabName === 'Add Student') {
+        tab.addEventListener('click', function() {
+          // Redirect to the Add Points page
+          window.location.href = 'addStudent.html';
         });
       }
     });
