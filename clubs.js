@@ -197,7 +197,7 @@ function createFindClub() {
 
   function performSearchWithFacet() {
     const query = searchInput.value.toLowerCase();
-    const facet = dropdown.value; // Remove .toLowerCase() here
+    const facet = dropdown.value; 
     
     // Log the values of query and facet
     console.log('Query:', query);
