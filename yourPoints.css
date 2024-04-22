@@ -1,10 +1,10 @@
 body {
-    font-family: "DM Sans", sans-serif; /* Change the font for the entire document */
+    font-family: "DM Sans", sans-serif; 
     background-color: #E9F6FE;
   }
   
   h2{
-    font-family: "DM Sans", sans-serif; /* Change font for headings */
+    font-family: "DM Sans", sans-serif; 
   }
   
   .header {
@@ -29,12 +29,11 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    text-decoration: underline;
-    font-size: 16px; /* Increase font size */
+    font-size: 16px; 
   }
   
   .tab:hover {
-    background-color: #f5a7a7; /* Change the text color to red when hovered over */
+    background-color: #f5a7a7; 
   }
   
   .notifications {
@@ -43,20 +42,20 @@ body {
   }
   
   .notify {
-    width: 40px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 40px; 
+    height: auto; 
     padding-right: 20px;
     position: absolute;
-    top: 50px; /* Adjust the distance from the top as needed */
-    right: 150px; /* Adjust the distance from the right as needed */
+    top: 50px; 
+    right: 150px; 
   }
   
   .userProfile{
-    width: 40px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 40px; 
+    height: auto; 
     position: absolute;
-    top: 50px; /* Adjust the distance from the top as needed */
-    right: 100px; /* Adjust the distance from the right as needed */
+    top: 50px; 
+    right: 100px; 
   }
   
   .main-content {
@@ -65,69 +64,35 @@ body {
     justify-content: center;
     align-items: center;
   }
-  
-  
-  .search-container {
-    margin-top: 20px;
+
+  .container {
     display: flex;
-    align-items: center;
-  }
-  
-  .search-input {
-    width: 300px;
+    justify-content: space-between;
+    margin: 20px;
+    background-color: #ffffff;
+}
+
+.container > div {
+    flex: 1;
     padding: 10px;
-    margin-right: 10px;
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    height: 38px;
-    margin-right: 50px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .club-list {
-    list-style: none;
-    padding: 0;
-    max-height: 300px; /* Set maximum height for scrollable box */
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
-  
-  .club-list li {
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .club-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .club-list-container {
-    margin-top: 20px; /* Add some space between search input/button and club list */
-    padding: 10px; /* Add padding inside the container */
-    border: 1px solid #000000; /* Add a border around the container */
-    border-radius: 5px; /* Add rounded corners to the border */
-  }
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0 10px;
+}
+
+
   .footer {
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: center; 
+    align-items: center; 
     margin-top: 100px;
   }
   
   .user-profile-text{
-    width: 40px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 40px; 
+    height: auto; 
     padding-right: 20px;
     position: absolute;
-    top: 60px; /* Adjust the distance from the top as needed */
-    right: 20px; /* Adjust the distance from the right as needed */
+    top: 60px; 
+    right: 20px; 
   
   }

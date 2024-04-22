@@ -6,25 +6,24 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    // Specify the location of the event
     var eventLocation = { lat: 41.8719, lng: -87.6479 };
-
-    // Create a marker at the event location
     var marker = new google.maps.Marker({
         position: eventLocation,
         map: map,
         title: 'SCE'
     });
 
-    // Create an info window with a link
     var infoWindow = new google.maps.InfoWindow({
-        content: '<div id="content"><p>Event Location. Click to learn more.</p><a href="LFO.html">Left Over Food</a><p><a href="ED.html">Event Details</a></p></div>'
-
+        content: '<div id="content"><p>Event Location. Click to learn more.</p><a href="LFO.html">Left Over Food</a></div>'
     });
 
-    // Add a click listener to the marker to open the info window
+    infoWindow.open(map, marker);
     marker.addListener('click', function() {
-        infoWindow.open(map, marker);
+        if (infoWindow.getMap()) {
+            infoWindow.close();
+        } else {
+            infoWindow.open(map, marker);
+        }
     });
 }
 
@@ -37,7 +36,6 @@ function loadGoogleMapsScript(apiKey) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // events data
     var eventsData = [
         {
             logo: 'Images/acmLogo.png',

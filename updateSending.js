@@ -5,7 +5,7 @@ const updateState = {
 };
 
 function createTab(tabName) {
-    const tab = document.createElement('button'); // Create button element
+    const tab = document.createElement('button'); 
     tab.classList.add('tab');
     tab.textContent = tabName;
     return tab;
@@ -21,19 +21,19 @@ function createTabs() {
       tabs.appendChild(tab);
       if (tabName === 'Create Events') {
         tab.addEventListener('click', function() {
-          // Redirect to the Create Event page
+
           window.location.href = 'CE.html';
         });
       }
       if (tabName === 'Add Points') {
         tab.addEventListener('click', function() {
-          // Redirect to the Create Event page
+
           window.location.href = 'AP.html';
         });
       }
       if (tabName === 'Add Students') {
         tab.addEventListener('click', function() {
-          // Redirect to the Create Event page
+
           window.location.href = 'addStudents.html';
         });
       }
@@ -49,12 +49,12 @@ function createNotifications() {
     const notify = document.createElement('img');
     notify.src = 'Images/notify.png';
     notify.alt = 'Notifications';
-    notify.classList.add('notify'); // Add a class to the image for styling
+    notify.classList.add('notify'); 
   
     const clubName = document.createElement('img');
     clubName.src = 'Images/acmLogo.png';
     clubName.alt = 'Club Logo'
-    clubName.classList.add('clubLogo'); // Add a class to the image for styling
+    clubName.classList.add('clubLogo'); 
   
     notifications.appendChild(notify);
     notifications.appendChild(clubName);
@@ -64,32 +64,31 @@ function createNotifications() {
   
   
 function updateSendingBox() {
-    // Create the event management box container
+
     const eventBoxContainer = document.createElement('div');
     eventBoxContainer.classList.add('event-box-container');
   
-    // Create the event management box
     const eventBox = document.createElement('div');
     eventBox.classList.add('event-box');
 
     const text1 = document.createElement('p');
     text1.textContent = 'Event Name';
-    text1.classList.add('text1'); // Add class for styling
+    text1.classList.add('text1'); 
 
     const text2 = document.createElement('p');
     text2.textContent = 'Update Reason';
-    text2.classList.add('text2'); // Add class for styling
+    text2.classList.add('text2'); 
   
     const sendUpdate = document.createElement('button');
     sendUpdate.textContent = 'Send Update';
-    sendUpdate.classList.add('send-update'); // Add class for styling
+    sendUpdate.classList.add('send-update'); 
     sendUpdate.addEventListener('click', function() {
       window.location.href = 'index.html';
     });
    
 
     const event = document.createElement('div');
-    event.classList.add('event'); // Add class for styling
+    event.classList.add('event'); 
 
     const box1 = document.createElement('div');
     box1.classList.add('box1');
@@ -103,11 +102,11 @@ function updateSendingBox() {
 
     const updatetext1 = document.createElement('p');
     updatetext1.textContent = 'Update students event is starting in ';
-    updatetext1.classList.add('update-text1'); // Add class for styling
+    updatetext1.classList.add('update-text1'); 
 
     var time = document.createElement('input');
     time.type = "text";
-    time.classList.add('time'); // Add class for styling
+    time.classList.add('time'); 
     time.addEventListener('change', function(event) {
       updateState.time = event.target.value;
     });
@@ -128,7 +127,7 @@ function updateSendingBox() {
 
     const updatetext2 = document.createElement('p');
     updatetext2.textContent = 'Update students fresh food is left, they can come and pick up.';
-    updatetext2.classList.add('update-text2'); // Add class for styling
+    updatetext2.classList.add('update-text2'); 
 
     box2.appendChild(check2);
     box2.appendChild(updatetext2);
@@ -142,8 +141,7 @@ function updateSendingBox() {
     eventBox.appendChild(sendUpdate);
 
     eventBoxContainer.appendChild(eventBox);
-  
-    // Return the container
+
     return eventBoxContainer;
 }
   
@@ -157,10 +155,10 @@ function createUpdateSending() {
     const logo = document.createElement('img');
     logo.classList.add('logo');
     logo.src = 'Images/LeftoverLoungeLogo.png'; 
-    logo.alt = 'Logo'; // Add an alt attribute for accessibility
+    logo.alt = 'Logo'; 
 
     logo.addEventListener('click', function() {
-      window.location.href = 'index.html'; // Event listener to take you back to the homepage
+      window.location.href = 'index.html'; 
     });
   
     const tabs = createTabs();

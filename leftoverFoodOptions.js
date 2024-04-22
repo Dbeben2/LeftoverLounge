@@ -1,23 +1,37 @@
 
-function createTab(tabName) {
+function createTab(tabName, link) {
     const tab = document.createElement('button'); // Create button element
     tab.classList.add('tab');
     tab.textContent = tabName;
+    tab.addEventListener('click', function() {
+      window.location.href = link;
+    });
     return tab;
-}
+  }
   
-function createTabs() {
+  function createTabs() {
     const tabs = document.createElement('div');
     tabs.classList.add('tabs');
   
-    const tabNames = ['Clubs at UIC', 'Your points'];
-    tabNames.forEach(tabName => {
-      const tab = createTab(tabName);
+    const tabDetails = [
+      { name: 'Clubs at UIC', link: 'clubs.html' },
+      { name: 'Your Points', link: 'yourPoints.html' },
+      { name: 'Event Search', link: 'ED.html' }
+    ];
+  
+    tabDetails.forEach(tabDetail => {
+      const tab = createTab(tabDetail.name, tabDetail.link);
       tabs.appendChild(tab);
     });
   
     return tabs;
-}
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('someContainerId'); 
+    const tabs = createTabs();
+    container.appendChild(tabs);
+  });
   
   
 function createNotifications() {
@@ -27,12 +41,12 @@ function createNotifications() {
     const notify = document.createElement('img');
     notify.src = 'images/notify.png';
     notify.alt = 'Notifications';
-    notify.classList.add('notify'); // Add a class to the image for styling
-  
+    notify.classList.add('notify'); 
+
     const userProfile = document.createElement('img');
     userProfile.src = 'images/agent1.png';
     userProfile.alt = 'Club Logo'
-    userProfile.classList.add('userProfile'); // Add a class to the image for styling
+    userProfile.classList.add('userProfile'); 
   
     notifications.appendChild(notify);
     notifications.appendChild(userProfile);
@@ -42,24 +56,21 @@ function createNotifications() {
   }
 
 function createBox(imageSource, textContent) {
-    const box = document.createElement('div'); // Create a box element
+    const box = document.createElement('div'); 
 
-    // Create an image element
     const image = document.createElement('img');
     image.src = imageSource;
-    image.alt = 'Image'; // Set alt attribute for accessibility
-    image.width = 60; // Set width of the image
-    image.height = 60; // Set height of the image
-    
-    // Create a paragraph element for the text content
+    image.alt = 'Image'; 
+    image.width = 60; 
+    image.height = 60; 
+
     const text = document.createElement('p');
     text.textContent = textContent;
 
-    // Append the image and text content to the box
     box.appendChild(image);
     box.appendChild(text);
 
-    return box; // Return the created box element
+    return box; 
 }
 
 function createScrollableBox() {
@@ -116,11 +127,9 @@ function createScrollableBox() {
 }
   
 function updateSendingBox() {
-    // Create the event management box container
     const eventBoxContainer = document.createElement('div');
     eventBoxContainer.classList.add('event-box-container');
   
-    // Create the event management box
     const eventBox = document.createElement('div');
     eventBox.classList.add('event-box');
 
@@ -129,11 +138,11 @@ function updateSendingBox() {
 
     const eventNameText = document.createElement('p');
     eventNameText.textContent = 'Meeting: SIG Game Lead';
-    eventNameText.classList.add('event-name-text'); // Add class for styling
+    eventNameText.classList.add('event-name-text'); 
 
     const clubLogo = document.createElement('img');
     clubLogo.src = 'Images/acmLogo.png';
-    clubLogo.classList.add('club-logo'); // Add class for styling
+    clubLogo.classList.add('club-logo');
 
     const foodDrinkOptionsbox = document.createElement('div');
     foodDrinkOptionsbox.classList.add('food-drinks-options');
@@ -155,7 +164,6 @@ function updateSendingBox() {
 
     eventBoxContainer.appendChild(eventBox);
   
-    // Return the container
     return eventBoxContainer;
 }
   
@@ -168,18 +176,18 @@ function createLeftoverFoodOptions() {
   
     const logo = document.createElement('img');
     logo.src = 'Images/LeftoverLoungeLogo.png'; 
-    logo.alt = 'Logo'; // Add an alt attribute for accessibility
+    logo.alt = 'Logo'; 
     logo.classList.add('logo');
 
     logo.addEventListener('click', function() {
-      window.location.href = 'clubMember.html'; // Event listener to take you back to the homepage
+      window.location.href = 'clubMember.html'; 
     });
   
     const tabs = createTabs();
     const notifications = createNotifications();
     const userProfileText = document.createElement('span');
     userProfileText.textContent = 'Justin';
-    userProfileText.classList.add('user-profile-text'); // Add a class for styling
+    userProfileText.classList.add('user-profile-text'); 
 
     header.appendChild(logo);
     header.appendChild(tabs);
