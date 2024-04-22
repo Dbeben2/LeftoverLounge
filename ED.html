@@ -8,17 +8,9 @@
 </head>
 <body>
 <div id="eventDescription"></div>
-
 <script type="module" src="eventDescription.js"></script>
-
 <script type="module">
   import createEventDescriptionPage from './eventDescription.js';
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const eventDescriptionContainer = document.getElementById('eventDescription');
-    const eventDescription = createEventDescriptionPage();
-    eventDescriptionContainer.appendChild(eventDescription);
-  });
 </script>
 </body>
 </html>

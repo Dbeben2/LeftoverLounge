@@ -3,7 +3,6 @@ function createTab(tabName, link) {
   tab.classList.add('tab');
   tab.textContent = tabName;
   tab.addEventListener('click', function() {
-    // Redirect to the specified link when the tab is clicked
     window.location.href = link;
   });
   return tab;
@@ -15,9 +14,10 @@ function createTabs() {
 
   const tabDetails = [
     { name: 'Clubs at UIC', link: 'clubs.html' },
-    { name: 'Your Points', link: 'yourPoints.html' }
+    { name: 'Your Points', link: 'yourPoints.html' },
+    { name: 'Event Search', link: 'ED.html' }
   ];
-  
+
   tabDetails.forEach(tabDetail => {
     const tab = createTab(tabDetail.name, tabDetail.link);
     tabs.appendChild(tab);
@@ -25,6 +25,12 @@ function createTabs() {
 
   return tabs;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('someContainerId'); // Ensure this container exists in your HTML
+  const tabs = createTabs();
+  container.appendChild(tabs);
+});
 
 function createNotifications() {
   const notifications = document.createElement('div');

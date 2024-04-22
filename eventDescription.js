@@ -41,20 +41,40 @@ function createNavigationBar() {
     document.body.insertBefore(header, document.body.firstChild);
 }
 
-function createTabs() {
-    const tabs = document.createElement('div');
-    tabs.className = 'tabs';
-    const tabNames = ['Clubs at UIC', 'Your Points'];
-
-    tabNames.forEach(name => {
-        const tab = document.createElement('button');
-        tab.textContent = name;
-        tab.className = 'tab';
-        tabs.appendChild(tab);
+function createTab(tabName, link) {
+    const tab = document.createElement('button'); // Create button element
+    tab.classList.add('tab');
+    tab.textContent = tabName;
+    tab.addEventListener('click', function() {
+      window.location.href = link;
     });
-
+    return tab;
+  }
+  
+  function createTabs() {
+    const tabs = document.createElement('div');
+    tabs.classList.add('tabs');
+  
+    const tabDetails = [
+      { name: 'Clubs at UIC', link: 'clubs.html' },
+      { name: 'Your Points', link: 'yourPoints.html' },
+      { name: 'Event Search', link: 'ED.html' }
+    ];
+  
+    tabDetails.forEach(tabDetail => {
+      const tab = createTab(tabDetail.name, tabDetail.link);
+      tabs.appendChild(tab);
+    });
+  
     return tabs;
-}
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('someContainerId'); // Ensure this container exists in your HTML
+    const tabs = createTabs();
+    container.appendChild(tabs);
+  });
+  
 
 function createNotifications() {
   const notifications = document.createElement('div');
