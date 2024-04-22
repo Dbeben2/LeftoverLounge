@@ -206,7 +206,7 @@ function createFindClub() {
     // Array to store clubs matching the selected facet
     const matchingClubs = [];
     
-    // Iterate through each line of the CSV file
+    // Iterate through each club
     for (const club of searchedClubs) {
       const facets = clubData.get(club);
       
