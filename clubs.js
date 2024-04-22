@@ -1,7 +1,11 @@
-function createTab(tabName) {
+function createTab(tabName, link) {
   const tab = document.createElement('button'); // Create button element
   tab.classList.add('tab');
   tab.textContent = tabName;
+  tab.addEventListener('click', function() {
+    // Redirect to the specified link when the tab is clicked
+    window.location.href = link;
+  });
   return tab;
 }
 
@@ -9,21 +13,18 @@ function createTabs() {
   const tabs = document.createElement('div');
   tabs.classList.add('tabs');
 
-  const tabNames = ['Clubs at UIC', 'Your Points'];
-  tabNames.forEach(tabName => {
-    const tab = createTab(tabName);
+  const tabDetails = [
+    { name: 'Clubs at UIC', link: 'clubs.html' },
+    { name: 'Your Points', link: 'yourPoints.html' }
+  ];
+  
+  tabDetails.forEach(tabDetail => {
+    const tab = createTab(tabDetail.name, tabDetail.link);
     tabs.appendChild(tab);
-    if (tabName === 'Create Events') {
-      tab.addEventListener('click', function() {
-        // Redirect to the Create Event page
-        window.location.href = 'CE.html';
-      });
-    }
   });
 
   return tabs;
 }
-
 
 function createNotifications() {
   const notifications = document.createElement('div');
@@ -32,16 +33,15 @@ function createNotifications() {
   const notify = document.createElement('img');
   notify.src = 'images/notify.png';
   notify.alt = 'Notifications';
-  notify.classList.add('notify'); // Add a class to the image for styling
+  notify.classList.add('notify');
 
   const userProfile = document.createElement('img');
   userProfile.src = 'images/agent1.png';
-  userProfile.alt = 'Club Logo'
-  userProfile.classList.add('userProfile'); // Add a class to the image for styling
+  userProfile.alt = 'User Profile';
+  userProfile.classList.add('userProfile');
 
   notifications.appendChild(notify);
   notifications.appendChild(userProfile);
-
 
   return notifications;
 }
@@ -130,114 +130,112 @@ function createFindClub() {
   // Add event listener for search button click event
   searchButton.addEventListener('click', performSearch);
 
+  // Add dropdown
+  const dropdown = document.createElement('select');
+  dropdown.classList.add('facet-dropdown');
 
-const dropdown = document.createElement('select');
-dropdown.classList.add('facet-dropdown');
+  // Append dropdown to search container
+  searchContainer.appendChild(dropdown);
 
-// Append dropdown to search container
-searchContainer.appendChild(dropdown);
+  // Array to store unique facets
+  const uniqueFacets = new Set();
 
-// Array to store unique facets
-const uniqueFacets = new Set();
-
-// Function to populate dropdown with unique facets
-function populateDropdown() {
-  uniqueFacets.forEach(facet => {
-    const option = document.createElement('option');
-    option.textContent = facet;
-    dropdown.appendChild(option);
-  });
-}
-
-// Define clubData as a Map to store facets associated with each club
-const clubData = new Map();
-
-// Read club names from CSV file
-function readCSV(file) {
-  const reader = new FileReader();
-  reader.onload = function(event) {
-    const csv = event.target.result;
-    const lines = csv.split('\n');
-    for (let i = 1; i < lines.length; i++) { // Skip the first line
-      const line = lines[i];
-      const columns = line.split(',');
-      const facets = columns.slice(4).map(facet => facet.trim()); // Extract facets from columns
-      facets.forEach(facet => uniqueFacets.add(facet)); // Add facets to uniqueFacets set
-      const clubName = columns[0].replace(/"/g, '').trim(); // Strip double quotes and get the first column (club name)
-      searchedClubs.add(clubName); // Add club name to searchedClubs set
-      clubData.set(clubName, facets); // Store club name and facets in clubData map
-    }
-    populateDropdown(); // Populate dropdown with unique facets
-
-    console.log("List of Facets:");
-    uniqueFacets.forEach(facet => console.log(facet));
-  };
-  reader.readAsText(file);
-}
-
-// Create button for applying facet filter
-const applyFilterButton = document.createElement('button');
-applyFilterButton.textContent = 'Apply Filter';
-applyFilterButton.classList.add('apply-filter-button');
-
-// Append button to search container
-searchContainer.appendChild(applyFilterButton);
-
-// Add event listener for apply filter button click event
-applyFilterButton.addEventListener('click', () => {
-  console.log("Facet Search Button Clicked");
-  performSearchWithFacet();
-});
-
-function performSearchWithFacet() {
-  const query = searchInput.value.toLowerCase();
-  const facet = dropdown.value; // Remove .toLowerCase() here
-  
-  // Log the values of query and facet
-  console.log('Query:', query);
-  console.log('Facet:', facet);
-  
-  // Array to store clubs matching the selected facet
-  const matchingClubs = [];
-  
-  // Iterate through each line of the CSV file
-  for (const club of searchedClubs) {
-    const facets = clubData.get(club);
-    
-    // Check if the club has the selected facet
-    if (facets.includes(facet) && club.toLowerCase().includes(query)) {
-      matchingClubs.push(club);
-    }
+  // Function to populate dropdown with unique facets
+  function populateDropdown() {
+    uniqueFacets.forEach(facet => {
+      const option = document.createElement('option');
+      option.textContent = facet;
+      dropdown.appendChild(option);
+    });
   }
-  
-  // Log the matching clubs array
-  console.log('Matching Clubs:', matchingClubs);
-  
-  // Display filtered clubs
-  displayClubs(matchingClubs, clubList);
-}
 
+  // Define clubData as a Map to store facets associated with each club
+  const clubData = new Map();
 
+  // Read club names from CSV file
+  function readCSV(file) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const csv = event.target.result;
+      const lines = csv.split('\n');
+      for (let i = 1; i < lines.length; i++) { // Skip the first line
+        const line = lines[i];
+        const columns = line.split(',');
+        const facets = columns.slice(4).map(facet => facet.trim()); // Extract facets from columns
+        facets.forEach(facet => uniqueFacets.add(facet)); // Add facets to uniqueFacets set
+        const clubName = columns[0].replace(/"/g, '').trim(); // Strip double quotes and get the first column (club name)
+        searchedClubs.add(clubName); // Add club name to searchedClubs set
+        clubData.set(clubName, facets); // Store club name and facets in clubData map
+      }
+      populateDropdown(); // Populate dropdown with unique facets
 
-// Function to display club names in a list
-function displayClubs(clubs, clubList) {
-  clubList.innerHTML = ''; // Clear existing list
-  clubs.forEach(club => {
-    const listItem = document.createElement('li');
-    listItem.textContent = club;
-    clubList.appendChild(listItem);
+      console.log("List of Facets:");
+      uniqueFacets.forEach(facet => console.log(facet));
+    };
+    reader.readAsText(file);
+  }
+
+  // Create button for applying facet filter
+  const applyFilterButton = document.createElement('button');
+  applyFilterButton.textContent = 'Apply Filter';
+  applyFilterButton.classList.add('apply-filter-button');
+
+  // Append button to search container
+  searchContainer.appendChild(applyFilterButton);
+
+  // Add event listener for apply filter button click event
+  applyFilterButton.addEventListener('click', () => {
+    console.log("Facet Search Button Clicked");
+    performSearchWithFacet();
   });
-}
 
-// Fetch the CSV file and call readCSV function
-fetch('clubinfo.csv')
-  .then(response => response.blob())
-  .then(readCSV)
-  .catch(error => console.error('Error fetching CSV file:', error));
+  function performSearchWithFacet() {
+    const query = searchInput.value.toLowerCase();
+    const facet = dropdown.value; // Remove .toLowerCase() here
+    
+    // Log the values of query and facet
+    console.log('Query:', query);
+    console.log('Facet:', facet);
+    
+    // Array to store clubs matching the selected facet
+    const matchingClubs = [];
+    
+    // Iterate through each line of the CSV file
+    for (const club of searchedClubs) {
+      const facets = clubData.get(club);
+      
+      // Check if the club has the selected facet
+      if (facets.includes(facet) && club.toLowerCase().includes(query)) {
+        matchingClubs.push(club);
+      }
+    }
+    
+    // Log the matching clubs array
+    console.log('Matching Clubs:', matchingClubs);
+    
+    // Display filtered clubs
+    displayClubs(matchingClubs, clubList);
+  }
 
-createEvent.appendChild(header);
-createEvent.appendChild(mainContent);
-createEvent.appendChild(clubListContainer);
+  // Function to display club names in a list
+  function displayClubs(clubs, clubList) {
+    clubList.innerHTML = ''; // Clear existing list
+    clubs.forEach(club => {
+      const listItem = document.createElement('li');
+      listItem.textContent = club;
+      clubList.appendChild(listItem);
+    });
+  }
 
-return createEvent;
+  // Fetch the CSV file and call readCSV function
+  fetch('clubinfo.csv')
+    .then(response => response.blob())
+    .then(readCSV)
+    .catch(error => console.error('Error fetching CSV file:', error));
+
+  createEvent.appendChild(header);
+  createEvent.appendChild(mainContent);
+  createEvent.appendChild(clubListContainer);
+
+  return createEvent;
 }

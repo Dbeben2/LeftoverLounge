@@ -109,11 +109,36 @@ h2{
 }
 
 .club-list-container {
-  margin-top: 20px; /* Add some space between search input/button and club list */
-  padding: 10px; /* Add padding inside the container */
-  border: 1px solid #000000; /* Add a border around the container */
-  border-radius: 5px; /* Add rounded corners to the border */
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  max-height: 300px; /* Adjust height as needed */
+  overflow-y: auto; /* Make the container scrollable */
 }
+
+.club-button {
+  display: block; /* Make the button behave like a block element */
+  width: 100%; /* Full width of its parent */
+  padding: 10px;
+  margin-bottom: 10px; /* Add space between buttons */
+  border: 1px solid #ccc; /* Subtle border for the buttons */
+  background-color: #fff; /* White background */
+  color: #000; /* Black text color */
+  text-align: left; /* Align text to the left */
+  cursor: pointer; /* Change mouse pointer to indicate clickable */
+  text-decoration: none; /* No underline */
+  border-radius: 4px; /* Slight rounding of corners */
+}
+
+.club-button:hover {
+  background-color: #f5f5f5; /* Slight grey background on hover */
+}
+
+.club-button:last-child {
+  margin-bottom: 0; /* Remove bottom margin for the last button */
+}
+
 .footer {
   display: flex;
   justify-content: center; /* Center the content horizontally */
